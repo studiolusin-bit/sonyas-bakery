@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonya's Bakery | Taarten op Maat · Gouda</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --burg:#6B1D2A;--burg-dark:#4A1018;
+  --cream:#F2EDE8;--off:#FAF8F5;--white:#fff;
+  --dark:#2A2018;--mid:#5C5040;--light:#9A8878;
+  --pill:#4A4038;--border:#E4DDD6;--green:#2D6A4F;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+
+/* HEADER */
+header{background:var(--burg);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:200;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:#fff;text-decoration:none;}
+.hright{display:flex;align-items:center;gap:14px;}
+.hnav{display:flex;gap:16px;}
+.hnav a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13px;cursor:pointer;}
+.hnav a:hover{color:#fff;}
+.cart-btn{background:rgba(255,255,255,.15);border:none;color:#fff;padding:7px 15px;border-radius:20px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:5px;}
+.cart-btn:hover{background:rgba(255,255,255,.25);}
+
+/* PAGES */
+.page{display:block;}.page.hidden{display:none!important;}
+
+/* ───────────────── HOME ───────────────── */
+#page-home{background:var(--cream);min-height:100vh;padding-bottom:80px;}
+
+.hero{background:var(--burg);padding:52px 24px 60px;text-align:center;color:#fff;}
+.hero-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;display:block;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,10vw,70px);font-weight:300;font-style:italic;line-height:1.04;margin-bottom:14px;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.65);font-weight:300;line-height:1.7;margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-w{display:inline-block;background:#fff;color:var(--burg);padding:13px 28px;border-radius:28px;font-size:14px;font-weight:500;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;}
+.btn-o{display:inline-block;background:rgba(255,255,255,.13);color:#fff;padding:13px 28px;border-radius:28px;font-size:14px;font-weight:400;text-decoration:none;cursor:pointer;border:1px solid rgba(255,255,255,.3);font-family:'Inter',sans-serif;}
+
+.stats{display:flex;background:#fff;border-bottom:1px solid var(--border);}
+.stat{flex:1;text-align:center;padding:20px 8px;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--burg);}
+.stat-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--light);margin-top:3px;}
+
+.sec{padding:48px 22px;}
+.sec-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--burg);margin-bottom:10px;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,6vw,40px);font-weight:300;line-height:1.1;margin-bottom:12px;}
+.sec-title em{font-style:italic;color:var(--burg);}
+.sec-body{font-size:14px;color:var(--mid);line-height:1.75;font-weight:300;}
+
+.about-wrap{background:#fff;}
+.about-quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--burg);border-left:3px solid var(--burg);padding-left:16px;margin:20px 0;line-height:1.5;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
+.about-card{background:var(--cream);border-radius:10px;padding:16px;}
+.about-card-ico{font-size:22px;margin-bottom:6px;}
+.about-card-title{font-size:13px;font-weight:500;margin-bottom:3px;}
+.about-card-txt{font-size:12px;color:var(--mid);line-height:1.5;font-weight:300;}
+
+.how-wrap{background:var(--burg);color:#fff;}
+.how-wrap .sec-label{color:rgba(255,255,255,.45);}
+.how-wrap .sec-title{color:#fff;}
+.steps{display:flex;flex-direction:column;margin-top:6px;}
+.step{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.step:last-child{border-bottom:none;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:rgba(255,255,255,.2);flex-shrink:0;width:36px;line-height:1;}
+.step-title{font-size:14px;font-weight:500;color:#fff;margin-bottom:3px;}
+.step-txt{font-size:13px;color:rgba(255,255,255,.6);line-height:1.55;font-weight:300;}
+
+/* Smaken grid */
+.smaken-wrap{background:var(--off);}
+.smaken-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:20px;}
+.smaak-card{background:#fff;border-radius:10px;padding:14px;border:1px solid var(--border);}
+.smaak-ico{font-size:24px;margin-bottom:6px;}
+.smaak-name{font-size:14px;font-weight:500;margin-bottom:3px;}
+.smaak-note{font-size:11px;color:var(--light);line-height:1.45;font-weight:300;}
+
+/* Gallery */
+.gallery-wrap{background:#fff;padding:40px 22px;}
+.gallery-scroll{display:flex;gap:10px;overflow-x:auto;margin-top:18px;scrollbar-width:none;padding-bottom:4px;}
+.gallery-scroll::-webkit-scrollbar{display:none;}
+.gallery-tile{width:130px;height:130px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#EDE5DC,#DDD0C4);}
+
+/* Bestel banner */
+.bestel-wrap{background:var(--cream);padding:42px 22px;text-align:center;}
+
+/* FAQ */
+.faq-wrap{background:#fff;padding:42px 22px;}
+.faq-item{border-bottom:1px solid var(--border);padding:15px 0;cursor:pointer;}
+.faq-item:last-child{border-bottom:none;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;}
+.faq-q span{font-size:20px;color:var(--light);transition:transform .25s;}
+.faq-a{font-size:13px;color:var(--mid);line-height:1.7;font-weight:300;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;}
+.faq-item.open .faq-a{max-height:200px;padding-top:10px;}
+.faq-item.open .faq-q span{transform:rotate(45deg);}
+
+/* Contact strip */
+.contact-strip{background:var(--burg);color:#fff;padding:44px 22px;text-align:center;}
+.contact-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.contact-link{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);color:#fff;padding:12px 20px;border-radius:22px;text-decoration:none;font-size:13px;border:1px solid rgba(255,255,255,.18);}
+.cinfo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+.cinfo{background:rgba(255,255,255,.08);border-radius:10px;padding:14px;}
+.cinfo-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:5px;}
+.cinfo-val{font-size:13px;color:#fff;font-weight:300;line-height:1.4;}
+
+/* ───────────────── CATALOG ───────────────── */
+#page-catalog{background:var(--cream);min-height:100vh;padding-bottom:80px;}
+.cat-scroll{overflow-x:auto;padding:15px 16px 5px;display:flex;gap:8px;scrollbar-width:none;background:var(--cream);position:sticky;top:58px;z-index:100;border-bottom:1px solid var(--border);}
+.cat-scroll::-webkit-scrollbar{display:none;}
+.cat-pill{flex-shrink:0;padding:8px 17px;border-radius:20px;border:none;font-family:'Inter',sans-serif;font-size:13px;cursor:pointer;background:transparent;color:var(--mid);white-space:nowrap;}
+.cat-pill.active{background:var(--pill);color:#fff;}
+.sec-head{padding:24px 18px 10px;}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;margin-bottom:7px;}
+.dbadge{display:inline-flex;align-items:center;background:var(--pill);color:#fff;padding:4px 12px;border-radius:16px;font-size:11px;}
+.dnote{font-size:12px;color:var(--light);margin-top:4px;font-weight:300;}
+.cake-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px;}
+.ccard{background:#fff;border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s;}
+.ccard:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.1);}
+.ccard-img{width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:58px;background:linear-gradient(135deg,#EDE5DC,#DDD0C4);}
+.ccard-body{padding:11px 12px 13px;}
+.ccard-name{font-size:13px;font-weight:500;color:var(--dark);margin-bottom:3px;line-height:1.3;}
+/* PRICE DISPLAY ON CARD */
+.ccard-price{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--burg);margin-bottom:9px;}
+.ccard-price span{font-size:11px;font-family:'Inter',sans-serif;color:var(--light);font-weight:300;}
+.ccard-btn{width:100%;background:var(--pill);color:#fff;border:none;padding:9px;border-radius:16px;font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;}
+.ccard-btn:hover{background:var(--burg);}
+
+/* Custom-order banner in catalog */
+.custom-banner{margin:20px 14px 0;background:var(--burg);border-radius:12px;padding:22px 18px;color:#fff;display:flex;align-items:center;gap:14px;cursor:pointer;}
+.custom-banner-ico{font-size:36px;flex-shrink:0;}
+.custom-banner-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:4px;}
+.custom-banner-sub{font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;font-weight:300;}
+.custom-banner-arrow{margin-left:auto;font-size:20px;opacity:.6;flex-shrink:0;}
+
+/* ───────────────── DETAIL ───────────────── */
+#page-detail{background:var(--off);min-height:100vh;padding-bottom:110px;}
+.back-btn{display:flex;align-items:center;gap:8px;padding:13px 18px;font-size:13px;color:var(--mid);cursor:pointer;background:transparent;border:none;font-family:'Inter',sans-serif;}
+.back-btn svg{width:17px;height:17px;}
+.d-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#EDE5DC,#D5C8BA);display:flex;align-items:center;justify-content:center;font-size:96px;}
+.d-thumbs{display:flex;gap:8px;padding:10px 16px;overflow-x:auto;scrollbar-width:none;}
+.d-thumbs::-webkit-scrollbar{display:none;}
+.d-thumb{width:64px;height:64px;border-radius:8px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px;background:#EDE5DC;transition:border-color .2s;}
+.d-thumb.active{border-color:var(--burg);}
+.d-content{padding:16px 20px;}
+.d-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;margin-bottom:6px;}
+.d-desc{font-size:13px;color:var(--mid);line-height:1.65;font-weight:300;margin-bottom:14px;}
+
+/* LIVE PRICE BOX */
+.price-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.price-label{font-size:12px;color:var(--mid);font-weight:300;}
+.price-total{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--burg);}
+.price-breakdown{font-size:11px;color:var(--light);text-align:right;line-height:1.5;}
+
+.opt-sec{margin-top:22px;border-top:1px solid var(--border);padding-top:16px;}
+.opt-hdr{display:flex;justify-content:space-between;margin-bottom:12px;}
+.opt-title{font-size:15px;font-weight:500;}
+.opt-req{font-size:12px;color:var(--light);}
+.rlist{display:flex;flex-direction:column;}
+.ritem{display:flex;align-items:center;gap:12px;padding:12px 0;cursor:pointer;border-bottom:1px solid var(--border);}
+.ritem:last-child{border-bottom:none;}
+.rthumb{width:48px;height:48px;border-radius:8px;background:#EDE5DC;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.rinfo{flex:1;}
+.rname{font-size:14px;color:var(--dark);}
+.rnote{font-size:11px;color:var(--light);margin-top:2px;}
+/* PRICE ON OPTION ROW */
+.rprice{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--burg);font-weight:500;flex-shrink:0;margin-right:8px;}
+.rprice-extra{font-size:11px;color:var(--light);font-family:'Inter',sans-serif;font-weight:300;}
+.rcircle{width:22px;height:22px;border-radius:50%;border:2px solid #C8BEB4;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.rcircle.on{border-color:var(--burg);background:var(--burg);}
+.rcircle.on::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff;}
+
+.col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.col-item{border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .2s;}
+.col-item.sel{border-color:var(--burg);}
+.col-swatch{height:50px;}
+.col-lbl{background:var(--off);padding:5px 6px;font-size:11px;text-align:center;}
+
+/* Extras met prijsje */
+.extras-check{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.extra-chip{border:1px solid var(--border);border-radius:8px;padding:10px 12px;cursor:pointer;background:#fff;display:flex;flex-direction:column;gap:2px;transition:border-color .2s;}
+.extra-chip.on{border-color:var(--burg);background:#FEF5EF;}
+.extra-chip-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.extra-ico{font-size:18px;}
+.extra-price{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--burg);}
+.extra-name{font-size:12px;font-weight:500;color:var(--dark);margin-top:2px;}
+
+.notes-ta{width:100%;padding:12px;border:1px solid var(--border);border-radius:9px;font-family:'Inter',sans-serif;font-size:14px;color:var(--dark);background:var(--off);resize:none;min-height:72px;outline:none;font-weight:300;}
+.notes-ta:focus{border-color:var(--burg);}
+
+/* STICKY BAR */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--off);border-top:1px solid var(--border);padding:10px 18px;display:flex;gap:10px;align-items:center;z-index:150;box-shadow:0 -4px 18px rgba(0,0,0,.07);}
+.sticky-price{display:flex;flex-direction:column;}
+.sticky-price-amt{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--burg);font-weight:500;line-height:1;}
+.sticky-price-lbl{font-size:10px;color:var(--light);}
+.qty-ctrl{display:flex;align-items:center;border:1px solid var(--border);border-radius:8px;overflow:hidden;flex-shrink:0;}
+.qty-btn{width:38px;height:42px;border:none;background:var(--off);color:var(--dark);font-size:18px;cursor:pointer;}
+.qty-v{width:32px;height:42px;text-align:center;line-height:42px;font-size:14px;border-left:1px solid var(--border);border-right:1px solid var(--border);}
+.add-btn{flex:1;background:var(--pill);color:#fff;border:none;border-radius:9px;height:42px;font-size:13px;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;}
+.add-btn:hover{background:var(--burg);}
+
+/* ───────────────── CUSTOM ORDER PAGE ───────────────── */
+#page-custom{background:var(--off);min-height:100vh;padding-bottom:100px;}
+.custom-hero{background:var(--burg);padding:36px 22px 44px;color:#fff;text-align:center;}
+.custom-hero h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;font-style:italic;margin-bottom:10px;}
+.custom-hero p{font-size:14px;color:rgba(255,255,255,.65);font-weight:300;line-height:1.65;max-width:380px;margin:0 auto;}
+.custom-form-wrap{padding:24px 20px;}
+.custom-steps-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:24px;}
+.custom-steps-row::-webkit-scrollbar{display:none;}
+.custom-step-pill{flex-shrink:0;padding:7px 14px;border-radius:16px;font-size:12px;background:var(--cream);color:var(--mid);border:1px solid var(--border);}
+.custom-step-pill.done{background:var(--pill);color:#fff;border-color:var(--pill);}
+.custom-step-pill.active{background:var(--burg);color:#fff;border-color:var(--burg);}
+
+.cfield{margin-bottom:16px;}
+.cfield label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--light);margin-bottom:6px;}
+.cfield input,.cfield select,.cfield textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:9px;font-family:'Inter',sans-serif;font-size:14px;color:var(--dark);background:#fff;outline:none;font-weight:300;transition:border-color .2s;}
+.cfield input:focus,.cfield select:focus,.cfield textarea:focus{border-color:var(--burg);}
+.cfield textarea{resize:vertical;min-height:80px;}
+.cfield-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+/* PHOTO UPLOAD */
+.upload-zone{border:2px dashed var(--border);border-radius:12px;padding:32px 20px;text-align:center;cursor:pointer;background:#fff;transition:border-color .2s,background .2s;position:relative;overflow:hidden;}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--burg);background:#FEF5EF;}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.upload-icon{font-size:36px;margin-bottom:10px;}
+.upload-title{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:4px;}
+.upload-sub{font-size:12px;color:var(--light);font-weight:300;}
+.upload-preview{margin-top:14px;display:none;}
+.upload-preview img{width:100%;max-height:200px;object-fit:cover;border-radius:8px;}
+.upload-preview-name{font-size:12px;color:var(--mid);margin-top:6px;}
+
+/* Budget selector */
+.budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;}
+.budget-opt{border:1px solid var(--border);border-radius:8px;padding:12px 8px;text-align:center;cursor:pointer;background:#fff;transition:all .2s;}
+.budget-opt.sel{border-color:var(--burg);background:#FEF5EF;}
+.budget-amt{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--burg);}
+.budget-lbl{font-size:10px;color:var(--light);margin-top:2px;}
+
+.send-btn{width:100%;background:var(--pill);color:#fff;border:none;border-radius:9px;height:50px;font-size:15px;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;margin-top:4px;}
+.send-btn:hover{background:var(--burg);}
+
+/* ───────────────── CART ───────────────── */
+#page-cart{background:var(--cream);min-height:100vh;padding:22px 18px 120px;}
+.cart-top{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.cart-top button{background:none;border:none;font-size:20px;cursor:pointer;color:var(--mid);}
+.cart-top h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin:0;}
+.cart-empty{text-align:center;padding:64px 20px;}
+.cart-empty .ei{font-size:52px;margin-bottom:12px;}
+.cart-empty p{font-size:14px;color:var(--light);margin-bottom:16px;font-weight:300;}
+.citem{background:#fff;border-radius:12px;padding:13px;margin-bottom:10px;display:flex;gap:11px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.citem-icon{width:60px;height:60px;border-radius:8px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.citem-info{flex:1;}
+.citem-name{font-size:14px;font-weight:500;margin-bottom:2px;}
+.citem-det{font-size:11px;color:var(--light);line-height:1.6;font-weight:300;}
+.citem-price{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--burg);font-weight:500;white-space:nowrap;}
+.citem-rm{background:none;border:none;color:var(--light);font-size:16px;cursor:pointer;align-self:flex-start;}
+
+/* Cart totaal */
+.cart-totaal{background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:12px;border:1px solid var(--border);}
+.cart-totaal-row{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);}
+.cart-totaal-row:last-child{border-bottom:none;font-weight:600;font-size:15px;padding-top:10px;}
+.cart-totaal-row .amt{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--burg);}
+.cart-totaal-row:last-child .amt{font-size:22px;}
+
+.contact-box{background:#fff;border-radius:12px;padding:18px;margin-top:12px;}
+.contact-box h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:14px;}
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--light);margin-bottom:5px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;color:var(--dark);background:var(--off);outline:none;font-weight:300;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--burg);}
+.fg textarea{resize:vertical;min-height:64px;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+.success-box{background:#fff;border-radius:12px;padding:28px 20px;text-align:center;margin-top:12px;}
+.sicon{font-size:48px;margin-bottom:10px;}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;margin-bottom:8px;}
+.ssub{font-size:13px;color:var(--mid);line-height:1.65;font-weight:300;margin-bottom:16px;}
+.sig-btn{display:inline-block;background:var(--burg);color:#fff;padding:11px 24px;border-radius:20px;text-decoration:none;font-size:14px;font-weight:500;}
+
+/* BOTTOM NAV */
+.bnav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);display:flex;z-index:180;box-shadow:0 -2px 10px rgba(0,0,0,.05);}
+.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0 11px;border:none;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;color:var(--light);font-size:10px;letter-spacing:.03em;gap:3px;}
+.bnav-btn.active{color:var(--burg);}
+.bnav-btn svg{width:21px;height:21px;}
+.cbadge{position:absolute;top:-3px;right:-3px;background:var(--burg);color:#fff;font-size:9px;width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;}
+.cbadge.hidden{display:none;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo" onclick="nav('home');return false;">Sonya</a>
+  <div class="hright">
+    <div class="hnav">
+      <a onclick="nav('home');return false;">Home</a>
+      <a onclick="nav('catalog');return false;">Taarten</a>
+      <a onclick="nav('custom');return false;">Custom</a>
+      <a onclick="toContact();return false;">Contact</a>
+    </div>
+    <button class="cart-btn" onclick="nav('cart')">🛒 <span id="cc">0</span></button>
+  </div>
+</header>
+
+<!-- ══════════════ HOME PAGE ══════════════ -->
+<div id="page-home" class="page">
+  <div class="hero">
+    <span class="hero-tag">Handgemaakt in Gouda · Nederland</span>
+    <h1>Sonya's Bakery</h1>
+    <p class="hero-sub">Taarten op maat voor elke gelegenheid — gemaakt met liefde, ontworpen speciaal voor jou.</p>
+    <div class="hero-btns">
+      <button class="btn-w" onclick="nav('catalog')">Bekijk taarten</button>
+      <a href="#over-sonya" class="btn-o">Over Sonya ↓</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">139+</div><div class="stat-lbl">Taarten gemaakt</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Op maat</div></div>
+    <div class="stat"><div class="stat-num">5★</div><div class="stat-lbl">Beoordelingen</div></div>
+  </div>
+
+  <!-- OVER SONYA -->
+  <div class="about-wrap sec" id="over-sonya">
+    <p class="sec-label">Over Sonya</p>
+    <h2 class="sec-title">Hallo, ik ben <em>Sonya</em> 👋</h2>
+    <p class="sec-body">Vanuit mijn thuiskeuken in Gouda maak ik al jaren taarten op maat voor de mooiste momenten in jouw leven. Wat begon als een hobby groeide uit tot een echte passie — elke taart is een klein kunstwerkje.</p>
+    <div class="about-quote">"Elke taart vertelt een verhaal. Ik wil dat jouw verhaal er prachtig uitziet én heerlijk smaakt."</div>
+    <p class="sec-body">Of het nu gaat om een verjaardagstaart voor je kind, een elegante bruidstaart of een bijzonder cadeau — ik luister naar jouw wens en maak het werkelijkheid. Geen twee taarten zijn hetzelfde.</p>
+    <div class="about-grid">
+      <div class="about-card"><div class="about-card-ico">🎨</div><div class="about-card-title">Volledig op maat</div><div class="about-card-txt">Elk ontwerp is uniek en afgestemd op jouw wens.</div></div>
+      <div class="about-card"><div class="about-card-ico">🇳🇱</div><div class="about-card-title">Gevestigd in Gouda</div><div class="about-card-txt">Afhalen mogelijk. Bezorging op aanvraag.</div></div>
+      <div class="about-card"><div class="about-card-ico">🌿</div><div class="about-card-title">Verse ingrediënten</div><div class="about-card-txt">Alles gemaakt met verse, hoogwaardige producten.</div></div>
+      <div class="about-card"><div class="about-card-ico">💬</div><div class="about-card-title">Persoonlijk contact</div><div class="about-card-txt">Sonya bespreekt elk detail persoonlijk met je.</div></div>
+    </div>
+  </div>
+
+  <!-- HOE WERKT HET -->
+  <div class="how-wrap sec">
+    <p class="sec-label">Hoe werkt het?</p>
+    <h2 class="sec-title">Jouw taart in <em>4 stappen</em></h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Kies je taart & opties</div><div class="step-txt">Blader door de collectie of doe een volledig custom aanvraag met eigen foto. Kies grootte, vulling en versieringen — de prijs zie je meteen.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Sonya neemt contact op</div><div class="step-txt">Na je bestelling neem ik snel contact op om alles te bevestigen. Bij vaste taarten zie je de prijs al direct — geen verrassingen!</div></div></div>
+      <div class="step"><div class="step-num">03</div><div><div class="step-title">De taart wordt gemaakt</div><div class="step-txt">Met liefde en vakmanschap maak ik jouw taart van begin tot eind, klaar voor de afgesproken datum.</div></div></div>
+      <div class="step"><div class="step-num">04</div><div><div class="step-title">Ophalen of bezorging</div><div class="step-txt">Haal je taart op in Gouda of laat hem bezorgen in de regio (in overleg).</div></div></div>
+    </div>
+    <div style="margin-top:26px;text-align:center;">
+      <button class="btn-w" onclick="nav('catalog')">Begin hier →</button>
+    </div>
+  </div>
+
+  <!-- SMAKEN -->
+  <div class="smaken-wrap sec">
+    <p class="sec-label">Onze smaken</p>
+    <h2 class="sec-title">Heerlijke <em>vullingen</em></h2>
+    <p class="sec-body">Kies bij het bestellen jouw favoriete vulling — of combineer er twee bij een multi-etage taart!</p>
+    <div class="smaken-grid">
+      <div class="smaak-card"><div class="smaak-ico">🍦</div><div class="smaak-name">Vanille Droom</div><div class="smaak-note">Biscuit, banketbakkersroom, slagroom</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🍫</div><div class="smaak-name">Chocolade</div><div class="smaak-note">Chocoladebiscuit, donkere ganache</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🍋</div><div class="smaak-name">Citroen Fris</div><div class="smaak-note">Citroenbiscuit, lemoncurd, slagroom</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🍓</div><div class="smaak-name">Aardbei & Room</div><div class="smaak-note">Vanillebiscuit, aardbeienjam, verse aardbeien</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🍪</div><div class="smaak-name">Biscoff Karamel</div><div class="smaak-note">Karamelcake, Biscoff room, gezouten karamel</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🫐</div><div class="smaak-name">Framboos & Amandel</div><div class="smaak-note">Amandelcake, frambozenconfituur</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🌿</div><div class="smaak-name">Pistache & Roos</div><div class="smaak-note">Pistachebiscuit, rozenroom, witte choco</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🍒</div><div class="smaak-name">Zwarte Woud</div><div class="smaak-note">Chocoladecake, kersen, slagroom, kirsch</div></div>
+      <div class="smaak-card"><div class="smaak-ico">🍌</div><div class="smaak-name">Banaan & Karamel</div><div class="smaak-note">Bananenbiscuit, karamelroom, pralinécrunch</div></div>
+      <div class="smaak-card"><div class="smaak-ico">❤️</div><div class="smaak-name">Red Velvet</div><div class="smaak-note">Klassiek red velvet, cream cheese frosting</div></div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-wrap">
+    <p class="sec-label">Inspiratie</p>
+    <h2 class="sec-title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,36px);font-weight:300;margin-bottom:6px;">Bekijk onze <em style="font-style:italic;color:var(--burg);">creaties</em></h2>
+    <p style="font-size:13px;color:var(--mid);font-weight:300;">Volg ons op Instagram: <strong>@sonyas.bakery</strong></p>
+    <div class="gallery-scroll">
+      <div class="gallery-tile">🎂</div><div class="gallery-tile">🏎️</div><div class="gallery-tile">🌸</div>
+      <div class="gallery-tile">❤️</div><div class="gallery-tile">🎁</div><div class="gallery-tile">👑</div>
+      <div class="gallery-tile">💐</div><div class="gallery-tile">🌊</div>
+    </div>
+    <div style="margin-top:14px;">
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:var(--burg);color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:500;">📸 Volg @sonyas.bakery</a>
+    </div>
+  </div>
+
+  <!-- BESTEL BANNER -->
+  <div class="bestel-wrap">
+    <p class="sec-label" style="text-align:center;">Klaar om te bestellen?</p>
+    <h2 class="sec-title" style="text-align:center;">Jouw droomtaart <em>begint hier</em></h2>
+    <p class="sec-body" style="text-align:center;max-width:380px;margin:0 auto 20px;">Kies uit onze collectie met vaste prijzen, of doe een volledig eigen aanvraag met je eigen foto.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn-w" style="background:var(--burg);color:#fff;" onclick="nav('catalog')">🎂 Taartencollectie</button>
+      <button class="btn-w" style="background:var(--pill);color:#fff;" onclick="nav('custom')">✏️ Custom aanvraag</button>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-wrap">
+    <p class="sec-label">Veelgestelde vragen</p>
+    <h2 class="sec-title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,36px);font-weight:300;margin-bottom:18px;">Vragen? <em style="font-style:italic;color:var(--burg);">Antwoorden.</em></h2>
+    <div class="faq-item" onclick="tFaq(this)"><div class="faq-q">Hoe ver van tevoren moet ik bestellen?<span>+</span></div><div class="faq-a">Voor verjaardagstaarten is 5–7 dagen ideaal. Bruidstaarten en grote custom creaties hebben minimaal 2–3 weken nodig.</div></div>
+    <div class="faq-item" onclick="tFaq(this)"><div class="faq-q">Wat kost een taart?<span>+</span></div><div class="faq-a">Vaste taarten zie je de prijs direct in de collectie — die past zich automatisch aan als je een andere grootte of extra kiest. Voor volledig custom taarten neemt Sonya contact op met een persoonlijke offerte.</div></div>
+    <div class="faq-item" onclick="tFaq(this)"><div class="faq-q">Kan ik bezorging krijgen?<span>+</span></div><div class="faq-a">Afhalen in Gouda is altijd mogelijk. Bezorging in de regio kan in overleg worden geregeld.</div></div>
+    <div class="faq-item" onclick="tFaq(this)"><div class="faq-q">Kan ik twee smaken combineren?<span>+</span></div><div class="faq-a">Ja! Bij multi-etage taarten kun je per etage een andere vulling kiezen. Geef dit aan in het notitieveld.</div></div>
+    <div class="faq-item" onclick="tFaq(this)"><div class="faq-q">Hoe doe ik een custom aanvraag?<span>+</span></div><div class="faq-a">Ga naar "Custom aanvraag" via het menu. Daar kun je je eigen foto uploaden, je wensen beschrijven en een budgetindicatie meegeven. Sonya neemt daarna persoonlijk contact op.</div></div>
+    <div class="faq-item" onclick="tFaq(this)"><div class="faq-q">Welke allergenen worden gebruikt?<span>+</span></div><div class="faq-a">De meeste taarten bevatten gluten, eieren en zuivel. Geef allergieën of dieetwensen aan bij de bestelling — Sonya kijkt dan wat mogelijk is.</div></div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-strip" id="contact-sec">
+    <p class="sec-label" style="color:rgba(255,255,255,.4);">Contact</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,6vw,38px);font-weight:300;font-style:italic;margin-bottom:10px;">Neem contact op</h2>
+    <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;max-width:340px;margin:0 auto;font-weight:300;">Heb je een vraag? Stuur een berichtje via Instagram of WhatsApp — Sonya helpt je graag!</p>
+    <div class="contact-links">
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="contact-link">📸 @sonyas.bakery</a>
+      <a href="https://wa.me/31" target="_blank" class="contact-link">💬 WhatsApp</a>
+    </div>
+    <div class="cinfo-row">
+      <div class="cinfo"><div class="cinfo-lbl">Locatie</div><div class="cinfo-val">Gouda, Nederland</div></div>
+      <div class="cinfo"><div class="cinfo-lbl">Levertijd</div><div class="cinfo-val">Minimaal 5–7 dagen van tevoren bestellen</div></div>
+    </div>
+  </div>
+  <div style="height:80px;"></div>
+</div>
+
+<!-- ══════════════ CATALOG PAGE ══════════════ -->
+<div id="page-catalog" class="page hidden">
+  <div class="cat-scroll" id="cats">
+    <button class="cat-pill active" onclick="setCat('verjaardag',this)">🎂 Verjaardag</button>
+    <button class="cat-pill" onclick="setCat('kids',this)">🎈 Kindertaarten</button>
+    <button class="cat-pill" onclick="setCat('bruiloft',this)">💍 Bruiloft</button>
+    <button class="cat-pill" onclick="setCat('smash',this)">🍼 Smash cakes</button>
+  </div>
+  <div id="cat-body"></div>
+  <!-- Custom aanvraag banner onderaan collectie -->
+  <div class="custom-banner" onclick="nav('custom')" style="margin-top:24px;">
+    <div class="custom-banner-ico">✏️</div>
+    <div>
+      <div class="custom-banner-title">Eigen ontwerp?</div>
+      <div class="custom-banner-sub">Upload je eigen foto of inspiratie en Sonya maakt het voor je — volledig op maat, prijs in overleg.</div>
+    </div>
+    <div class="custom-banner-arrow">→</div>
+  </div>
+  <div style="height:80px;"></div>
+</div>
+
+<!-- ══════════════ DETAIL PAGE ══════════════ -->
+<div id="page-detail" class="page hidden">
+  <button class="back-btn" onclick="nav('catalog')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+    Terug naar overzicht
+  </button>
+  <div class="d-img" id="di-main"></div>
+  <div class="d-thumbs" id="di-thumbs"></div>
+  <div class="d-content">
+    <div class="d-name" id="di-name"></div>
+    <div class="d-desc" id="di-desc"></div>
+
+    <!-- LIVE PRIJS BOX -->
+    <div class="price-box">
+      <div><div class="price-label">Totaalprijs</div><div class="price-total" id="live-price">€0</div></div>
+      <div class="price-breakdown" id="price-breakdown">Kies een formaat om te beginnen</div>
+    </div>
+
+    <!-- FORMAAT -->
+    <div class="opt-sec">
+      <div class="opt-hdr"><span class="opt-title">Formaat</span><span class="opt-req">Verplicht</span></div>
+      <div class="rlist" id="size-list"></div>
+    </div>
+    <!-- VULLING -->
+    <div class="opt-sec">
+      <div class="opt-hdr"><span class="opt-title">Vulling / Smaak</span><span class="opt-req">Verplicht</span></div>
+      <div class="rlist" id="fill-list"></div>
+    </div>
+    <!-- KLEUR -->
+    <div class="opt-sec" id="col-sec">
+      <div class="opt-hdr"><span class="opt-title">Kleur</span><span class="opt-req">Verplicht</span></div>
+      <div class="col-grid" id="col-grid"></div>
+    </div>
+    <!-- EXTRA'S -->
+    <div class="opt-sec" id="ext-sec">
+      <div class="opt-hdr"><span class="opt-title">Extra versieringen</span><span class="opt-req">Optioneel</span></div>
+      <div class="extras-check" id="ext-grid"></div>
+    </div>
+    <!-- NOTITIES -->
+    <div class="opt-sec">
+      <div class="opt-hdr"><span class="opt-title">Notities</span><span class="opt-req">Optioneel</span></div>
+      <textarea class="notes-ta" id="di-notes" placeholder="Naam op de taart, thema, kleurwens, allergieën…"></textarea>
+    </div>
+  </div>
+  <div class="sticky-bar">
+    <div class="sticky-price">
+      <div class="sticky-price-amt" id="sticky-price-amt">€0</div>
+      <div class="sticky-price-lbl">totaalprijs</div>
+    </div>
+    <div class="qty-ctrl">
+      <button class="qty-btn" onclick="chQty(-1)">−</button>
+      <div class="qty-v" id="qv">1</div>
+      <button class="qty-btn" onclick="chQty(1)">+</button>
+    </div>
+    <button class="add-btn" onclick="addToCart()">Toevoegen aan bestelling</button>
+  </div>
+</div>
+
+<!-- ══════════════ CUSTOM ORDER PAGE ══════════════ -->
+<div id="page-custom" class="page hidden">
+  <button class="back-btn" onclick="nav('catalog')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
+    Terug
+  </button>
+  <div class="custom-hero">
+    <h2>Eigen ontwerp bestellen</h2>
+    <p>Heb jij een uniek idee of een inspiratiefoto? Upload het hier en Sonya maakt het voor je — helemaal naar jouw wens. Prijs wordt persoonlijk afgestemd.</p>
+  </div>
+  <div class="custom-form-wrap">
+
+    <!-- FOTO UPLOAD -->
+    <div class="cfield">
+      <label>Jouw inspiratiefoto of ontwerp (optioneel)</label>
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" accept="image/*" id="photo-input" onchange="handleUpload(this)">
+        <div class="upload-icon">📸</div>
+        <div class="upload-title">Tik om een foto te uploaden</div>
+        <div class="upload-sub">JPG, PNG of HEIC · max 10 MB</div>
+        <div class="upload-preview" id="upload-preview">
+          <img id="preview-img" src="" alt="Voorbeeld">
+          <div class="upload-preview-name" id="preview-name"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GELEGENHEID -->
+    <div class="cfield">
+      <label>Voor welke gelegenheid?</label>
+      <select id="c-occasion">
+        <option value="">Kies een gelegenheid…</option>
+        <option>Verjaardag</option>
+        <option>Kinderverjaardag</option>
+        <option>Bruiloft / huwelijk</option>
+        <option>Jubileum</option>
+        <option>Babyshower</option>
+        <option>Geboorte</option>
+        <option>Afstuderen</option>
+        <option>Communie / Vorming</option>
+        <option>Bedrijfsevenement</option>
+        <option>Anders</option>
+      </select>
+    </div>
+
+    <!-- BESCHRIJVING -->
+    <div class="cfield">
+      <label>Beschrijf jouw idee</label>
+      <textarea id="c-desc" placeholder="Bijv: Ik wil een taart in de stijl van Hot Wheels maar dan met het thema Minecraft. De naam 'Lars' erop en hij wordt 8 jaar…"></textarea>
+    </div>
+
+    <!-- DATUM & FORMAAT -->
+    <div class="cfield-row">
+      <div class="cfield">
+        <label>Datum gewenst</label>
+        <input type="date" id="c-date">
+      </div>
+      <div class="cfield">
+        <label>Aantal personen</label>
+        <select id="c-persons">
+          <option>6–10 personen</option>
+          <option>10–15 personen</option>
+          <option>15–20 personen</option>
+          <option>20–30 personen</option>
+          <option>30–50 personen</option>
+          <option>50+ personen</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- AANTAL ETAGES -->
+    <div class="cfield">
+      <label>Aantal etages</label>
+      <select id="c-tiers">
+        <option>1 etage</option>
+        <option>2 etages</option>
+        <option>3 etages</option>
+        <option>4+ etages (voor bruiloften etc.)</option>
+      </select>
+    </div>
+
+    <!-- VULLING -->
+    <div class="cfield">
+      <label>Gewenste vulling / smaak</label>
+      <select id="c-filling">
+        <option>Vanille Droom</option>
+        <option>Chocolade Verwennerij</option>
+        <option>Citroen Fris</option>
+        <option>Aardbei & Room</option>
+        <option>Biscoff Karamel</option>
+        <option>Framboos & Amandel</option>
+        <option>Pistache & Roos</option>
+        <option>Red Velvet</option>
+        <option>Zwarte Woud</option>
+        <option>Banaan & Karamel</option>
+        <option>Combinatie (vermeld in beschrijving)</option>
+      </select>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="cfield">
+      <label>Budgetindicatie (zodat Sonya weet wat haalbaar is)</label>
+      <div class="budget-grid" id="budget-grid">
+        <div class="budget-opt" onclick="selBudget('€50–€100',this)"><div class="budget-amt">€50–€100</div><div class="budget-lbl">Kleine taart</div></div>
+        <div class="budget-opt" onclick="selBudget('€100–€150',this)"><div class="budget-amt">€100–€150</div><div class="budget-lbl">Middelgroot</div></div>
+        <div class="budget-opt" onclick="selBudget('€150–€200',this)"><div class="budget-amt">€150–€200</div><div class="budget-lbl">Groter / meerdere lagen</div></div>
+        <div class="budget-opt" onclick="selBudget('€200–€300',this)"><div class="budget-amt">€200–€300</div><div class="budget-lbl">Uitgebreid design</div></div>
+        <div class="budget-opt" onclick="selBudget('€300–€500',this)"><div class="budget-amt">€300–€500</div><div class="budget-lbl">Bruidstaart / luxe</div></div>
+        <div class="budget-opt" onclick="selBudget('€500+',this)"><div class="budget-amt">€500+</div><div class="budget-lbl">Geen limiet / verrassing</div></div>
+      </div>
+    </div>
+
+    <!-- OPHALEN / BEZORGEN -->
+    <div class="cfield">
+      <label>Ophalen of bezorging?</label>
+      <select id="c-delivery">
+        <option>Ophalen in Gouda</option>
+        <option>Bezorging – regio Gouda (in overleg)</option>
+      </select>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="cfield">
+      <label>Jouw naam</label>
+      <input type="text" id="c-name" placeholder="bijv. Marie de Vries">
+    </div>
+    <div class="cfield">
+      <label>E-mail of WhatsApp nummer</label>
+      <input type="text" id="c-contact" placeholder="Zodat Sonya contact kan opnemen">
+    </div>
+
+    <div style="background:var(--cream);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px;color:var(--mid);line-height:1.6;font-weight:300;">
+      💡 <strong>Hoe werkt het?</strong> Na je aanvraag neemt Sonya binnen 1–2 werkdagen contact op om alles te bespreken en een prijsopgave te maken. Geen verplichtingen!
+    </div>
+
+    <button class="send-btn" onclick="submitCustom()">✉ Aanvraag versturen naar Sonya</button>
+    <div id="custom-success" style="display:none;"></div>
+  </div>
+  <div style="height:80px;"></div>
+</div>
+
+<!-- ══════════════ CART PAGE ══════════════ -->
+<div id="page-cart" class="page hidden">
+  <div class="cart-top">
+    <button onclick="nav('catalog')">←</button>
+    <h2>Jouw Bestelling</h2>
+  </div>
+  <div id="cart-body"></div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bnav" id="bnav">
+  <button class="bnav-btn active" id="bn-home" onclick="nav('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Home
+  </button>
+  <button class="bnav-btn" id="bn-shop" onclick="nav('catalog')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57L23 6H6"/></svg>
+    Taarten
+  </button>
+  <button class="bnav-btn" id="bn-custom" onclick="nav('custom')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    Custom
+  </button>
+  <button class="bnav-btn" id="bn-cart" onclick="nav('cart')" style="position:relative;">
+    <div style="position:relative;display:inline-block;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cbadge hidden" id="cbadge">0</span>
+    </div>
+    Bestelling
+  </button>
+</div>
+
+<script>
+/* ═══════════════════════════════════════
+   DATA MET PRIJZEN
+   Prijs = basisprijs per formaat
+   Extra's hebben eigen meerprijs
+═══════════════════════════════════════ */
+
+// Vaste vullingen — geen meerprijs
+const FILLS=[
+  {id:'vanilla',  ico:'🍦', name:'Vanille Droom',      note:'Biscuit, banketbakkersroom, slagroom'},
+  {id:'choc',     ico:'🍫', name:'Chocolade',           note:'Chocoladebiscuit, donkere ganache, chocoladeroom'},
+  {id:'lemon',    ico:'🍋', name:'Citroen Fris',        note:'Citroenbiscuit, lemoncurd, slagroom'},
+  {id:'strawb',   ico:'🍓', name:'Aardbei & Room',      note:'Vanillebiscuit, aardbeienjam, verse aardbeien'},
+  {id:'biscoff',  ico:'🍪', name:'Biscoff Karamel',     note:'Karamelcake, Biscoff room, gezouten karamel'},
+  {id:'raspberry',ico:'🫐', name:'Framboos & Amandel',  note:'Amandelcake, frambozenconfituur, slagroom'},
+  {id:'pistachio',ico:'🌿', name:'Pistache & Roos',     note:'Pistachebiscuit, rozenroom, witte choco'},
+  {id:'redvelvet',ico:'❤️', name:'Red Velvet',          note:'Klassiek red velvet, cream cheese frosting'},
+  {id:'blackfor', ico:'🍒', name:'Zwarte Woud',         note:'Chocoladecake, kersen, slagroom, kirsch'},
+  {id:'banana',   ico:'🍌', name:'Banaan & Karamel',    note:'Bananenbiscuit, karamelroom, pralinécrunch'},
+];
+
+const COLS=[
+  {id:'white',     name:'Puur Wit',       hex:'#F5F5F0'},
+  {id:'ivory',     name:'Ivoor Crème',    hex:'#F2EBE0'},
+  {id:'blush',     name:'Blush Roze',     hex:'#F0BFBF'},
+  {id:'dustyrose', name:'Oud Roze',       hex:'#D49298'},
+  {id:'sage',      name:'Saliegroen',     hex:'#9EB89A'},
+  {id:'blue',      name:'Poederblauw',    hex:'#8AAABE'},
+  {id:'lavender',  name:'Lavendel',       hex:'#C0B0D4'},
+  {id:'terracotta',name:'Terracotta',     hex:'#C87050'},
+  {id:'chocbrown', name:'Chocoladebruin', hex:'#5A3020'},
+  {id:'black',     name:'Zwart',          hex:'#1A1A1A'},
+  {id:'gold',      name:'Goud',           hex:'#C8A84A'},
+  {id:'custom',    name:'Eigen kleur',    hex:'linear-gradient(135deg,#f9c,#cf9,#9ef)'},
+];
+
+// Extra's met eigen prijs
+const EXTRAS=[
+  {id:'sflow',  ico:'🌸', name:'Suikerbloemen',    price:15},
+  {id:'fflow',  ico:'💐', name:'Verse bloemen',     price:20},
+  {id:'gold',   ico:'✨', name:'Bladgoud',          price:12},
+  {id:'name',   ico:'✍️', name:'Naam / tekst',      price:0},
+  {id:'photo',  ico:'📸', name:'Eetbare foto',      price:10},
+  {id:'drip',   ico:'🍫', name:'Chocolade drip',    price:8},
+  {id:'mac',    ico:'🍬', name:'Macaron topper',    price:12},
+  {id:'tier',   ico:'🎂', name:'Extra etage',       price:40},
+  {id:'topper', ico:'🏆', name:'Fondant figuurtje', price:25},
+];
+
+/* ── TAARTENCATALOGUS MET VASTE PRIJZEN ── */
+const CATS={
+  verjaardag:{
+    label:"Verjaardagstaarten", badge:"5–7 dagen van tevoren bestellen", note:"Prijs zichtbaar per gekozen formaat",
+    cakes:[
+      {id:'v-choc',   ico:'🎂', name:'Chocolade Droom',
+       desc:'Rijke chocoladetaart met ganache drip, chocoladescherven en gouden details. Feestelijk en onweerstaanbaar.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],
+       col:true, ext:true},
+      {id:'v-bessen', ico:'🍓', name:'Bessen & Room',
+       desc:'Luchtige taart met verse aardbei of framboos, gespoten room en seizoensfruit bovenop. Fris en elegant.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],
+       col:true, ext:true},
+      {id:'v-vanilla',ico:'🍦', name:'Vanille Klassiek',
+       desc:'Tijdloze vanilletaart met banketbakkersroom, roomslagroom en een mooie afwerking naar keuze.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:50},{l:'M – 1,8 kg · 10–12 pers',p:70},{l:'L – 2,5 kg · 14–16 pers',p:88}],
+       col:true, ext:true},
+      {id:'v-cijfer', ico:'🔢', name:'Cijfertaart',
+       desc:'Jouw leeftijd in biscuit — gevuld met room en vers fruit, versierd met bloemen en macarons.',
+       sizes:[{l:'1 cijfer · 8–10 pers',p:65},{l:'2 cijfers · 14–16 pers',p:110}],
+       col:true, ext:false},
+      {id:'v-lemon',  ico:'🍋', name:'Citroen Droomtaart',
+       desc:'Verfrissende citroentaart met lemon curd, luchtige slagroom en suikercitroen decoratie.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],
+       col:true, ext:true},
+      {id:'v-biscoff',ico:'🍪', name:'Biscoff Karamel',
+       desc:'Karamelcake met Biscoff room, gezouten karamelsaus en knapperige strooisels. Onmisbaar voor Biscoff fans.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:60},{l:'M – 1,8 kg · 10–12 pers',p:80},{l:'L – 2,5 kg · 14–16 pers',p:100}],
+       col:true, ext:true},
+    ]
+  },
+  kids:{
+    label:"Kindertaarten", badge:"Volgende dag ophalen mogelijk", note:"Prijs zichtbaar per gekozen formaat",
+    cakes:[
+      {id:'k-hotwheels',ico:'🏎️', name:'Hot Wheels',
+       desc:'Iconische Hot Wheels baan met vlammen en racevlag. Naam inbegrepen. Een droom voor autoliefhebbers!',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],
+       col:false, ext:true},
+      {id:'k-bouw',     ico:'🚧', name:'Bouwplaats',
+       desc:'Kiepwagens, graafmachines en verkeersborden — perfect voor kleine bouwers. Naam inbegrepen.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],
+       col:false, ext:true},
+      {id:'k-voetbal',  ico:'⚽', name:'Voetbalclub',
+       desc:'Multi-etage stadion taart met clublogo, groen veld en spelerfiguurtje. Naam inbegrepen.',
+       sizes:[{l:'2 etages · 10–15 pers',p:110},{l:'3 etages · 20–25 pers',p:155}],
+       col:false, ext:true},
+      {id:'k-jungle',   ico:'🦁', name:'Jungle Feest',
+       desc:'Safari met handgemaakte fondant dieren — leeuw, olifant, giraf en aap. Naam inbegrepen.',
+       sizes:[{l:'M – 2,5 kg · 9–10 pers',p:95},{l:'L – 3,5 kg · 12–14 pers',p:125}],
+       col:false, ext:true},
+      {id:'k-prinses',  ico:'👑', name:'Prinsessentaart',
+       desc:'Elegante taart met glinsterende kroon en "Gefeliciteerd" versiering. Kies jouw kleur.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],
+       col:true, ext:true},
+      {id:'k-konijn',   ico:'🐰', name:'Konijntjes Tuin',
+       desc:'Schattig konijntje met handgemaakte bloemetjes en vlindertjes. Zacht en pastel.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:60},{l:'M – 2 kg · 10–12 pers',p:85}],
+       col:true, ext:true},
+    ]
+  },
+  bruiloft:{
+    label:"Bruidstaarten", badge:"Min. 2–3 weken van tevoren", note:"Prijs zichtbaar per gekozen formaat",
+    cakes:[
+      {id:'b-bloem',  ico:'🌸', name:'Bloemen Bruidstaart',
+       desc:'Multi-etage met cascades van suiker- of verse bloemen en handgeschilderde details. Volledig op maat.',
+       sizes:[{l:'2 etages · 20–25 pers',p:220},{l:'3 etages · 35–45 pers',p:320},{l:'4 etages · 60+ pers',p:480}],
+       col:true, ext:true},
+      {id:'b-wit',    ico:'🤍', name:'Klassiek Wit',
+       desc:'Tijdloos witte fondanttaart met delicate piping, parel details en verse bloemen op aanvraag.',
+       sizes:[{l:'2 etages · 20–25 pers',p:200},{l:'3 etages · 35–45 pers',p:295}],
+       col:true, ext:true},
+      {id:'b-rustiek',ico:'🌿', name:'Rustieke Naked Cake',
+       desc:'Zichtbare biscuitlagen met verse bessen en seizoensbloemen. Puur en ongedwongen mooi.',
+       sizes:[{l:'2 etages · 15–20 pers',p:175},{l:'3 etages · 30–40 pers',p:260}],
+       col:false, ext:true},
+    ]
+  },
+  smash:{
+    label:"Smash cakes", badge:"Volgende dag ophalen mogelijk", note:"Speciaal voor eerste verjaardag fotoshoots",
+    cakes:[
+      {id:'s-beer',  ico:'🐻', name:'Baby Beer Smash',
+       desc:'Schattig beertje, zachte pastels en een "1" kaarsje. Perfect voor eerste verjaardag fotoshoots.',
+       sizes:[{l:'XS – 0,5 kg · smash only',p:28},{l:'XS + extra taart · smash + 6 plakjes',p:45}],
+       col:true, ext:false},
+      {id:'s-bloem', ico:'🌸', name:'Bloesem Smash',
+       desc:'Zachte bloemtaart met gedrukte suikerbloemen — lief, zacht en heel fotogeniek.',
+       sizes:[{l:'XS – 0,5 kg · smash only',p:28},{l:'XS + extra taart · smash + 6 plakjes',p:45}],
+       col:true, ext:false},
+    ]
+  }
+};
+
+/* ═══════════════════ STATE ═══════════════════ */
+let curCat='verjaardag', curCake=null, qty=1;
+let selSize=0, selFill=null, selCol=null, selExt=[];
+let selBudgetVal='';
+let cart=[];
+
+/* ═══════════════════ LIVE PRIJS ═══════════════════ */
+function calcPrice(){
+  if(!curCake) return 0;
+  let base = curCake.sizes[selSize]?.p || 0;
+  let extraTotal = EXTRAS.filter(e=>selExt.includes(e.id)).reduce((s,e)=>s+e.price,0);
+  return (base + extraTotal) * qty;
+}
+
+function calcBreakdown(){
+  if(!curCake) return '';
+  const base = curCake.sizes[selSize]?.p || 0;
+  const extras = EXTRAS.filter(e=>selExt.includes(e.id));
+  let lines = [`Basisprijs: €${base}`];
+  extras.forEach(e=>{ if(e.price>0) lines.push(`${e.name}: +€${e.price}`); });
+  if(qty>1) lines.push(`× ${qty} taarten`);
+  return lines.join('\n');
+}
+
+function updatePrice(){
+  const p = calcPrice();
+  const fmt = p > 0 ? `€${p}` : '€—';
+  document.getElementById('live-price').textContent = fmt;
+  document.getElementById('sticky-price-amt').textContent = fmt;
+  document.getElementById('price-breakdown').textContent = calcBreakdown() || 'Kies een formaat om te beginnen';
+}
+
+/* ═══════════════════ ROUTING ═══════════════════ */
+function nav(p){
+  ['home','catalog','detail','custom','cart'].forEach(x=>
+    document.getElementById('page-'+x).classList.toggle('hidden',x!==p));
+  document.getElementById('bn-home').classList.toggle('active',p==='home');
+  document.getElementById('bn-shop').classList.toggle('active',p==='catalog'||p==='detail');
+  document.getElementById('bn-custom').classList.toggle('active',p==='custom');
+  document.getElementById('bn-cart').classList.toggle('active',p==='cart');
+  document.getElementById('bnav').style.display=p==='detail'?'none':'flex';
+  window.scrollTo(0,0);
+  if(p==='cart') renderCart();
+  if(p==='catalog') renderCat();
+}
+
+function toContact(){ nav('home'); setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),120); }
+
+/* ═══════════════════ FAQ ═══════════════════ */
+function tFaq(el){ el.classList.toggle('open'); }
+
+/* ═══════════════════ CATALOG ═══════════════════ */
+function setCat(cat,btn){
+  curCat=cat;
+  document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  renderCat();
+}
+
+function renderCat(){
+  const d=CATS[curCat];
+  const minPrice=(c)=>Math.min(...c.sizes.map(s=>s.p));
+  document.getElementById('cat-body').innerHTML=`
+    <div class="sec-head">
+      <h2>${d.label}</h2>
+      <span class="dbadge">${d.badge}</span>
+      <p class="dnote">${d.note}</p>
+    </div>
+    <div class="cake-grid">
+      ${d.cakes.map(c=>`
+        <div class="ccard" onclick="openDetail('${c.id}')">
+          <div class="ccard-img">${c.ico}</div>
+          <div class="ccard-body">
+            <div class="ccard-name">${c.name}</div>
+            <div class="ccard-price">€${minPrice(c)} <span>vanaf</span></div>
+            <button class="ccard-btn">Bekijk & aanpassen</button>
+          </div>
+        </div>`).join('')}
+    </div>`;
+}
+
+/* ═══════════════════ DETAIL ═══════════════════ */
+function openDetail(id){
+  let cake=null;
+  for(const cat of Object.values(CATS)){ const f=cat.cakes.find(c=>c.id===id); if(f){cake=f;break;} }
+  if(!cake) return;
+  curCake=cake; qty=1; selSize=0; selFill=null; selCol=null; selExt=[];
+  document.getElementById('qv').textContent='1';
+  document.getElementById('di-main').innerHTML=`<span style="font-size:96px">${cake.ico}</span>`;
+  document.getElementById('di-thumbs').innerHTML=[cake.ico,'📷','📷','📷'].map((t,i)=>
+    `<div class="d-thumb${i===0?' active':''}">${t}</div>`).join('');
+  document.getElementById('di-name').textContent=cake.name;
+  document.getElementById('di-desc').textContent=cake.desc;
+
+  // Formaat met prijs
+  document.getElementById('size-list').innerHTML=cake.sizes.map((s,i)=>`
+    <div class="ritem" onclick="pickSize(${i})">
+      <div class="rthumb">📐</div>
+      <div class="rinfo"><div class="rname">${s.l}</div></div>
+      <div class="rprice">€${s.p}</div>
+      <div class="rcircle${i===0?' on':''}" id="sc-${i}"></div>
+    </div>`).join('');
+
+  // Vulling
+  document.getElementById('fill-list').innerHTML=FILLS.map((f,i)=>`
+    <div class="ritem" onclick="pickFill(${i})">
+      <div class="rthumb">${f.ico}</div>
+      <div class="rinfo"><div class="rname">${f.name}</div><div class="rnote">${f.note}</div></div>
+      <div class="rcircle" id="fc-${i}"></div>
+    </div>`).join('');
+
+  // Kleur
+  const cs=document.getElementById('col-sec');
+  if(cake.col){
+    cs.classList.remove('hidden');
+    document.getElementById('col-grid').innerHTML=COLS.map(c=>`
+      <div class="col-item" onclick="pickCol('${c.id}',this)">
+        <div class="col-swatch" style="background:${c.hex}"></div>
+        <div class="col-lbl">${c.name}</div>
+      </div>`).join('');
+  } else cs.classList.add('hidden');
+
+  // Extra's met prijs
+  const es=document.getElementById('ext-sec');
+  if(cake.ext){
+    es.classList.remove('hidden');
+    document.getElementById('ext-grid').innerHTML=EXTRAS.map(e=>`
+      <div class="extra-chip" id="ec-${e.id}" onclick="togExt('${e.id}')">
+        <div class="extra-chip-top">
+          <span class="extra-ico">${e.ico}</span>
+          <span class="extra-price">${e.price>0?'+€'+e.price:'Gratis'}</span>
+        </div>
+        <div class="extra-name">${e.name}</div>
+      </div>`).join('');
+  } else es.classList.add('hidden');
+
+  document.getElementById('di-notes').value='';
+  updatePrice();
+  nav('detail');
+}
+
+function pickSize(i){
+  selSize=i;
+  document.querySelectorAll('[id^="sc-"]').forEach(c=>c.classList.remove('on'));
+  document.getElementById('sc-'+i).classList.add('on');
+  updatePrice();
+}
+function pickFill(i){
+  selFill=i;
+  document.querySelectorAll('[id^="fc-"]').forEach(c=>c.classList.remove('on'));
+  document.getElementById('fc-'+i).classList.add('on');
+}
+function pickCol(id,el){
+  selCol=id;
+  document.querySelectorAll('.col-item').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+}
+function togExt(id){
+  const el=document.getElementById('ec-'+id);
+  if(selExt.includes(id)){selExt=selExt.filter(e=>e!==id);el.classList.remove('on');}
+  else{selExt.push(id);el.classList.add('on');}
+  updatePrice();
+}
+function chQty(d){ qty=Math.max(1,qty+d); document.getElementById('qv').textContent=qty; updatePrice(); }
+
+function addToCart(){
+  if(!curCake) return;
+  if(selFill===null){alert('Kies alsjeblieft een vulling / smaak!');return;}
+  const totalPrice=calcPrice();
+  cart.push({
+    uid:Date.now(), ico:curCake.ico, name:curCake.name,
+    size:curCake.sizes[selSize].l, basePrice:curCake.sizes[selSize].p,
+    filling:FILLS[selFill].name,
+    colour:selCol?(COLS.find(c=>c.id===selCol)?.name||''):'Niet gekozen',
+    extras:EXTRAS.filter(e=>selExt.includes(e.id)).map(e=>e.name),
+    notes:document.getElementById('di-notes').value,
+    qty, totalPrice
+  });
+  updCart(); nav('cart');
+}
+
+/* ═══════════════════ CUSTOM ═══════════════════ */
+function handleUpload(input){
+  const file=input.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=(e)=>{
+    document.getElementById('preview-img').src=e.target.result;
+    document.getElementById('preview-name').textContent=file.name;
+    const prev=document.getElementById('upload-preview');
+    prev.style.display='block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function selBudget(val,el){
+  selBudgetVal=val;
+  document.querySelectorAll('.budget-opt').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+function submitCustom(){
+  const name=document.getElementById('c-name').value;
+  const contact=document.getElementById('c-contact').value;
+  const occasion=document.getElementById('c-occasion').value;
+  const desc=document.getElementById('c-desc').value;
+  if(!name||!contact){alert('Vul alsjeblieft je naam en contactgegevens in.');return;}
+  if(!occasion){alert('Kies alsjeblieft een gelegenheid.');return;}
+  if(!desc){alert('Beschrijf alsjeblieft je idee — ook kort is prima!');return;}
+
+  const date=document.getElementById('c-date').value||'Nader te bespreken';
+  const persons=document.getElementById('c-persons').value;
+  const tiers=document.getElementById('c-tiers').value;
+  const filling=document.getElementById('c-filling').value;
+  const delivery=document.getElementById('c-delivery').value;
+  const hasPhoto=document.getElementById('photo-input').files.length>0;
+
+  const msg=encodeURIComponent(
+    `Hoi Sonya! ✏️ Custom taart aanvraag\n\n`+
+    `Naam: ${name}\nContact: ${contact}\n`+
+    `Gelegenheid: ${occasion}\nDatum: ${date}\n`+
+    `Personen: ${persons}\nEtages: ${tiers}\n`+
+    `Vulling: ${filling}\nBudget: ${selBudgetVal||'Niet opgegeven'}\n${delivery}\n\n`+
+    `Beschrijving:\n${desc}\n\n`+
+    `${hasPhoto?'📸 Inspiratiefoto is bijgevoegd (via website upload)':'Geen foto bijgevoegd'}`
+  );
+
+  document.getElementById('custom-success').style.display='block';
+  document.getElementById('custom-success').innerHTML=`
+    <div class="success-box" style="margin-top:0;">
+      <div class="sicon">🎉</div>
+      <div class="stitle">Aanvraag verstuurd!</div>
+      <div class="ssub">Sonya neemt binnen 1–2 werkdagen contact op om alles te bespreken en een prijs op maat te maken. Check je Instagram DM's of e-mail!</div>
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="sig-btn">📸 DM @sonyas.bakery</a>
+      <div style="margin-top:12px;"><a href="mailto:?subject=Custom Taartaanvraag – Sonya's Bakery&body=${msg}" style="font-size:13px;color:var(--mid);text-decoration:underline;">Of verstuur per e-mail</a></div>
+    </div>`;
+  document.querySelector('.custom-form-wrap > .send-btn').style.display='none';
+}
+
+/* ═══════════════════ CART ═══════════════════ */
+function updCart(){
+  const n=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cc').textContent=n;
+  const b=document.getElementById('cbadge');
+  if(n>0){b.classList.remove('hidden');b.textContent=n;}else b.classList.add('hidden');
+}
+
+function renderCart(){
+  const el=document.getElementById('cart-body');
+  if(!cart.length){
+    el.innerHTML=`<div class="cart-empty">
+      <div class="ei">🎂</div>
+      <p>Je bestelling is nog leeg — blader door de taarten en voeg je favorieten toe!</p>
+      <button onclick="nav('catalog')" style="background:var(--pill);color:#fff;border:none;padding:11px 24px;border-radius:20px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;">Taarten bekijken</button>
+    </div>`;
+    return;
+  }
+  const totaal=cart.reduce((s,i)=>s+i.totalPrice,0);
+  el.innerHTML=
+    cart.map(item=>`
+      <div class="citem">
+        <div class="citem-icon">${item.ico}</div>
+        <div class="citem-info">
+          <div class="citem-name">${item.name} ×${item.qty}</div>
+          <div class="citem-det">
+            ${item.size}<br>
+            Vulling: ${item.filling}<br>
+            ${item.colour!=='Niet gekozen'?`Kleur: ${item.colour}<br>`:''}
+            ${item.extras.length?`Extra's: ${item.extras.join(', ')}<br>`:''}
+            ${item.notes?`Notitie: ${item.notes}`:''}
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+          <div class="citem-price">€${item.totalPrice}</div>
+          <button class="citem-rm" onclick="rmItem(${item.uid})">✕</button>
+        </div>
+      </div>`).join('')
+    +`<div class="cart-totaal">
+        <div class="cart-totaal-row"><span>Subtotaal</span><span class="amt">€${totaal}</span></div>
+        <div class="cart-totaal-row"><span style="font-size:11px;color:var(--light);font-weight:300;">Bezorgkosten worden overlegd met Sonya</span><span style="font-size:11px;color:var(--light);">PM</span></div>
+        <div class="cart-totaal-row"><span>Totaal</span><span class="amt">€${totaal}</span></div>
+      </div>`
+    +`<div class="contact-box">
+        <h3>Jouw gegevens</h3>
+        <div class="fg"><label>Jouw naam</label><input id="cn" placeholder="bijv. Marie de Vries"></div>
+        <div class="fg-row">
+          <div class="fg"><label>Datum gewenst</label><input type="date" id="cd"></div>
+          <div class="fg"><label>Ophalen / Bezorging</label>
+            <select id="cdv"><option>Ophalen in Gouda</option><option>Bezorging – regio Gouda</option></select>
+          </div>
+        </div>
+        <div class="fg"><label>E-mail of WhatsApp nummer</label><input id="ck" placeholder="Zodat Sonya contact kan opnemen"></div>
+        <div class="fg"><label>Overige opmerkingen</label><textarea id="cnotes" placeholder="Allergieën, bijzondere wensen…"></textarea></div>
+        <button class="send-btn" onclick="submitOrder()">✉ Bestelling versturen naar Sonya</button>
+      </div>`;
+}
+
+function rmItem(uid){cart=cart.filter(i=>i.uid!==uid);updCart();renderCart();}
+
+function submitOrder(){
+  const name=document.getElementById('cn')?.value||'';
+  const contact=document.getElementById('ck')?.value||'';
+  if(!name||!contact){alert('Vul alsjeblieft je naam en contactgegevens in.');return;}
+  const date=document.getElementById('cd')?.value||'Nader te bespreken';
+  const deliv=document.getElementById('cdv')?.value||'';
+  const notes=document.getElementById('cnotes')?.value||'';
+  const totaal=cart.reduce((s,i)=>s+i.totalPrice,0);
+  const lines=cart.map(i=>`• ${i.name} ×${i.qty} — €${i.totalPrice}\n  Formaat: ${i.size}\n  Vulling: ${i.filling}\n  Kleur: ${i.colour}${i.extras.length?"\n  Extra's: "+i.extras.join(', '):''}${i.notes?'\n  Notitie: '+i.notes:''}`).join('\n\n');
+  const msg=encodeURIComponent(`Hoi Sonya! 🎂 Bestelling\n\nNaam: ${name}\nDatum: ${date}\n${deliv}\nContact: ${contact}\n\n${lines}\n\nTotaal: €${totaal}${notes?'\n\nOpmerkingen: '+notes:''}`);
+  document.getElementById('cart-body').innerHTML=`
+    <div class="success-box">
+      <div class="sicon">🎉</div>
+      <div class="stitle">Bestelling verstuurd!</div>
+      <div class="ssub">Sonya neemt zo snel mogelijk contact op om je bestelling te bevestigen en de betaling te regelen. Check je Instagram DM's of e-mail!</div>
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="sig-btn">📸 DM @sonyas.bakery</a>
+      <div style="margin-top:12px;"><a href="mailto:?subject=Taartbestelling – Sonya's Bakery&body=${msg}" style="font-size:13px;color:var(--mid);text-decoration:underline;">Of verstuur per e-mail</a></div>
+    </div>`;
+  cart=[]; updCart();
+}
+
+/* INIT */
+renderCat(); renderCart();
+</script>
+</body>
+</html>
