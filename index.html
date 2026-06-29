@@ -17,25 +17,13 @@
   --mid:#6B5F55;
   --light:#9A8C80;
   --border:#E8DCCB;
-  --warm-gray:#8C7F6A;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;font-weight:300;}
 
-/* ───── HEADER ───── */
-header{
-  background:var(--white);
-  height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 20px;
-  position:sticky;
-  top:0;
-  z-index:200;
-  border-bottom:1px solid var(--border);
-}
+/* HEADER */
+header{background:var(--white);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);}
 .logo-link{display:flex;align-items:center;text-decoration:none;}
 .logo-img{height:46px;width:auto;object-fit:contain;}
 .logo-fallback{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:400;color:var(--navy);display:none;}
@@ -43,289 +31,154 @@ header{
 .hnav{display:flex;gap:20px;}
 .hnav a{color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:.08em;cursor:pointer;font-weight:400;text-transform:uppercase;}
 .hnav a:hover{color:var(--navy);}
-.cart-btn{background:var(--navy);border:none;color:#fff;padding:8px 16px;border-radius:20px;font-size:12px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:400;display:flex;align-items:center;gap:5px;letter-spacing:.04em;}
+.cart-btn{background:var(--navy);border:none;color:#fff;padding:8px 16px;font-size:12px;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:400;display:flex;align-items:center;gap:5px;letter-spacing:.04em;}
 .cart-btn:hover{background:var(--navy-dark);}
 
-/* ───── PAGES ───── */
+/* PAGES */
 .page{display:block;}.page.hidden{display:none!important;}
 
-/* ════════════════════════════════════
-   HOME PAGE
-════════════════════════════════════ */
+/* HOME */
 #page-home{background:var(--bg);min-height:100vh;padding-bottom:80px;}
 
-/* HERO */
-.hero{
-  background:var(--bg);
-  padding:56px 24px 64px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';
-  position:absolute;
-  bottom:0;left:0;right:0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--border),transparent);
-}
-.hero-tag{
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--navy);
-  margin-bottom:20px;
-  display:block;
-  font-weight:400;
-}
-.hero h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(48px,12vw,80px);
-  font-weight:300;
-  font-style:italic;
-  line-height:1;
-  margin-bottom:6px;
-  color:var(--navy);
-}
-.hero-subtitle{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(18px,4vw,26px);
-  font-weight:300;
-  color:var(--blue);
-  letter-spacing:.06em;
-  margin-bottom:20px;
-  text-transform:uppercase;
-}
-.hero-divider{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-bottom:20px;
-}
-.hero-divider::before,.hero-divider::after{
-  content:'';
-  display:block;
-  width:48px;
-  height:1px;
-  background:var(--blue);
-  opacity:.4;
-}
-.hero-diamond{
-  width:6px;height:6px;
-  background:var(--blue);
-  transform:rotate(45deg);
-  opacity:.5;
-}
-.hero-sub{
-  font-size:14px;
-  color:var(--mid);
-  font-weight:300;
-  line-height:1.8;
-  margin-bottom:30px;
-  max-width:420px;
-  margin-left:auto;
-  margin-right:auto;
-}
+.hero{background:var(--bg);padding:64px 24px 72px;text-align:center;position:relative;}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
+.hero-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);margin-bottom:24px;display:block;font-weight:400;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,14vw,88px);font-weight:300;font-style:italic;line-height:1;margin-bottom:8px;color:var(--navy);}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(13px,3vw,18px);font-weight:300;color:var(--blue);letter-spacing:.2em;margin-bottom:32px;text-transform:uppercase;}
+.hero-sub{font-size:13px;color:var(--mid);font-weight:300;line-height:1.9;margin-bottom:36px;max-width:380px;margin-left:auto;margin-right:auto;}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-primary{display:inline-block;background:var(--navy);color:#fff;padding:14px 30px;border-radius:2px;font-size:12px;font-weight:400;text-decoration:none;cursor:pointer;border:none;font-family:'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+
+.btn-primary{display:inline-block;background:var(--navy);color:#fff;padding:14px 32px;font-size:11px;font-weight:400;text-decoration:none;cursor:pointer;border:none;font-family:'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;}
 .btn-primary:hover{background:var(--navy-dark);}
-.btn-outline{display:inline-block;background:transparent;color:var(--navy);padding:13px 28px;border-radius:2px;font-size:12px;font-weight:400;text-decoration:none;cursor:pointer;border:1px solid var(--navy);font-family:'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+.btn-outline{display:inline-block;background:transparent;color:var(--navy);padding:13px 30px;font-size:11px;font-weight:400;text-decoration:none;cursor:pointer;border:1px solid var(--navy);font-family:'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;}
 .btn-outline:hover{background:var(--navy);color:#fff;}
 
-/* SHOP BY OCCASION */
-.occasions-wrap{padding:52px 20px 40px;background:var(--white);}
-.section-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);margin-bottom:10px;display:block;font-weight:400;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,40px);font-weight:300;line-height:1.1;margin-bottom:6px;color:var(--dark);}
+/* OCCASIONS */
+.occasions-wrap{padding:56px 20px 48px;background:var(--white);}
+.section-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);margin-bottom:12px;display:block;font-weight:400;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,40px);font-weight:300;line-height:1.1;margin-bottom:8px;color:var(--dark);}
 .section-title em{font-style:italic;color:var(--navy);}
-.section-body{font-size:13px;color:var(--mid);line-height:1.8;font-weight:300;}
-.occasions-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;}
-.occ-tile{
-  background:var(--bg);
-  border-radius:4px;
-  padding:22px 16px;
-  cursor:pointer;
-  text-align:center;
-  border:1px solid var(--border);
-  transition:all .2s;
-  text-decoration:none;
-  display:block;
-}
-.occ-tile:hover{background:var(--navy);border-color:var(--navy);}
-.occ-tile:hover .occ-name,.occ-tile:hover .occ-sub{color:#fff;}
-.occ-ico{font-size:28px;margin-bottom:8px;display:block;}
-.occ-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--dark);margin-bottom:3px;display:block;}
-.occ-sub{font-size:11px;color:var(--light);font-weight:300;letter-spacing:.04em;display:block;}
+.section-body{font-size:13px;color:var(--mid);line-height:1.9;font-weight:300;}
+.occasions-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:28px;background:var(--border);}
+.occ-tile{background:var(--bg);padding:28px 16px;cursor:pointer;text-align:left;transition:background .2s;text-decoration:none;display:block;}
+.occ-tile:hover{background:var(--navy);}
+.occ-tile:hover .occ-num,.occ-tile:hover .occ-name,.occ-tile:hover .occ-sub{color:#fff;}
+.occ-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--navy);display:block;margin-bottom:10px;opacity:.5;}
+.occ-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:var(--dark);margin-bottom:3px;display:block;}
+.occ-sub{font-size:11px;color:var(--light);font-weight:300;letter-spacing:.03em;display:block;}
 
-/* FEATURED CAKES */
-.featured-wrap{padding:48px 20px;background:var(--cream);}
-.featured-scroll{display:flex;gap:12px;overflow-x:auto;margin-top:22px;scrollbar-width:none;padding-bottom:4px;}
+/* FEATURED */
+.featured-wrap{padding:52px 20px;background:var(--cream);}
+.featured-scroll{display:flex;gap:1px;overflow-x:auto;margin-top:24px;scrollbar-width:none;padding-bottom:4px;background:var(--border);}
 .featured-scroll::-webkit-scrollbar{display:none;}
-.feat-card{
-  min-width:160px;max-width:160px;
-  background:var(--white);
-  border-radius:4px;
-  overflow:hidden;
-  cursor:pointer;
-  border:1px solid var(--border);
-  flex-shrink:0;
-  transition:transform .2s,box-shadow .2s;
-}
-.feat-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(47,95,154,.12);}
-.feat-img{
-  width:100%;height:130px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:48px;
-  background:linear-gradient(135deg,var(--bg),#EDD9A3);
-}
-.feat-body{padding:11px 12px 14px;}
-.feat-name{font-size:12px;font-weight:400;color:var(--dark);margin-bottom:4px;line-height:1.3;}
+.feat-card{min-width:155px;max-width:155px;background:var(--white);overflow:hidden;cursor:pointer;flex-shrink:0;transition:opacity .2s;}
+.feat-card:hover{opacity:.82;}
+.feat-img{width:100%;height:125px;background:linear-gradient(135deg,var(--bg),#EDD9A3);}
+.feat-body{padding:12px 13px 15px;}
+.feat-name{font-size:12px;font-weight:400;color:var(--dark);margin-bottom:5px;line-height:1.3;}
 .feat-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--navy);}
 .feat-price span{font-size:11px;font-family:'Montserrat',sans-serif;color:var(--light);font-weight:300;}
 
-/* ABOUT SONYA */
+/* ABOUT */
 .about-wrap{background:var(--white);}
-.about-inner{padding:48px 22px;}
-.about-quote{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;
-  font-style:italic;
-  color:var(--navy);
-  border-left:2px solid var(--navy);
-  padding-left:16px;
-  margin:22px 0;
-  line-height:1.6;
-  opacity:.85;
-}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
-.about-card{background:var(--bg);border-radius:4px;padding:16px;border:1px solid var(--border);}
-.about-card-ico{font-size:20px;margin-bottom:6px;}
-.about-card-title{font-size:12px;font-weight:500;margin-bottom:3px;color:var(--dark);letter-spacing:.02em;}
-.about-card-txt{font-size:12px;color:var(--mid);line-height:1.6;font-weight:300;}
+.about-inner{padding:52px 22px;}
+.about-quote{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--navy);border-left:2px solid var(--navy);padding-left:18px;margin:24px 0;line-height:1.7;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:24px;background:var(--border);}
+.about-card{background:var(--bg);padding:18px 16px;}
+.about-card-num{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--navy);margin-bottom:8px;opacity:.45;}
+.about-card-title{font-size:12px;font-weight:500;margin-bottom:4px;color:var(--dark);letter-spacing:.03em;}
+.about-card-txt{font-size:12px;color:var(--mid);line-height:1.7;font-weight:300;}
 
-/* HOW IT WORKS */
-.how-wrap{background:var(--navy);color:#fff;padding:52px 22px;}
-.how-wrap .section-label{color:rgba(255,255,255,.4);}
-.how-wrap .section-title{color:#fff;}
-.steps{display:flex;flex-direction:column;margin-top:8px;}
-.step{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+/* HOW IT WORKS — cream, no navy bg */
+.how-wrap{background:var(--cream);padding:56px 22px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.steps{display:flex;flex-direction:column;margin-top:12px;}
+.step{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);}
 .step:last-child{border-bottom:none;}
-.step-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(255,255,255,.15);flex-shrink:0;width:38px;line-height:1;}
-.step-title{font-size:13px;font-weight:500;color:#fff;margin-bottom:4px;letter-spacing:.02em;}
-.step-txt{font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--navy);flex-shrink:0;width:44px;line-height:1;opacity:.28;}
+.step-title{font-size:13px;font-weight:400;color:var(--dark);margin-bottom:5px;letter-spacing:.02em;}
+.step-txt{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;}
 
-/* SMAKEN */
-.smaken-wrap{background:var(--cream);padding:48px 22px;}
-.smaken-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px;}
-.smaak-card{background:var(--white);border-radius:4px;padding:14px;border:1px solid var(--border);}
-.smaak-ico{font-size:22px;margin-bottom:6px;}
-.smaak-name{font-size:13px;font-weight:400;margin-bottom:3px;color:var(--dark);}
-.smaak-note{font-size:11px;color:var(--light);line-height:1.5;font-weight:300;}
+/* SMAKEN — clean text rows */
+.smaken-wrap{background:var(--white);padding:52px 22px;}
+.smaken-list{margin-top:24px;border-top:1px solid var(--border);}
+.smaak-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border);}
+.smaak-dot{width:5px;height:5px;background:var(--navy);flex-shrink:0;opacity:.5;}
+.smaak-name{font-size:13px;font-weight:400;color:var(--dark);min-width:140px;}
+.smaak-note{font-size:11px;color:var(--light);font-weight:300;}
 
 /* GALLERY */
-.gallery-wrap{background:var(--white);padding:44px 22px;}
-.gallery-scroll{display:flex;gap:10px;overflow-x:auto;margin-top:20px;scrollbar-width:none;padding-bottom:4px;}
+.gallery-wrap{background:var(--cream);padding:48px 22px;}
+.gallery-scroll{display:flex;gap:1px;overflow-x:auto;margin-top:22px;scrollbar-width:none;padding-bottom:4px;background:var(--border);}
 .gallery-scroll::-webkit-scrollbar{display:none;}
-.gallery-tile{
-  width:140px;height:140px;border-radius:4px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:52px;
-  background:linear-gradient(135deg,var(--bg),#EDD9A3);
-  border:1px solid var(--border);
-}
+.gallery-tile{width:140px;height:140px;flex-shrink:0;}
 
-/* CTA BANNER */
-.bestel-wrap{background:var(--bg);padding:52px 22px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+/* CTA */
+.bestel-wrap{background:var(--bg);padding:56px 22px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 
 /* FAQ */
-.faq-wrap{background:var(--white);padding:48px 22px;}
-.faq-item{border-bottom:1px solid var(--border);padding:16px 0;cursor:pointer;}
+.faq-wrap{background:var(--white);padding:52px 22px;}
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0;cursor:pointer;}
 .faq-item:last-child{border-bottom:none;}
 .faq-q{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:400;color:var(--dark);}
-.faq-q span{font-size:18px;color:var(--light);transition:transform .25s;}
-.faq-a{font-size:12px;color:var(--mid);line-height:1.75;font-weight:300;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;}
-.faq-item.open .faq-a{max-height:200px;padding-top:10px;}
+.faq-q span{font-size:20px;color:var(--light);transition:transform .25s;font-weight:300;line-height:1;}
+.faq-a{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;}
+.faq-item.open .faq-a{max-height:200px;padding-top:12px;}
 .faq-item.open .faq-q span{transform:rotate(45deg);}
 
-/* CONTACT */
-.contact-strip{background:var(--navy);color:#fff;padding:52px 22px;text-align:center;}
-.contact-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px;}
-.contact-link{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);color:#fff;padding:12px 22px;border-radius:2px;text-decoration:none;font-size:12px;border:1px solid rgba(255,255,255,.2);font-weight:400;letter-spacing:.04em;}
-.contact-link:hover{background:rgba(255,255,255,.18);}
-.cinfo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
-.cinfo{background:rgba(255,255,255,.07);border-radius:4px;padding:14px;}
-.cinfo-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:5px;}
-.cinfo-val{font-size:12px;color:#fff;font-weight:300;line-height:1.5;}
+/* CONTACT — white bg, navy accent */
+.contact-strip{background:var(--white);padding:56px 22px;text-align:center;border-top:1px solid var(--border);}
+.contact-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.contact-link{display:flex;align-items:center;gap:8px;background:transparent;color:var(--navy);padding:12px 24px;text-decoration:none;font-size:12px;border:1px solid var(--navy);font-weight:400;letter-spacing:.06em;}
+.contact-link:hover{background:var(--navy);color:#fff;}
+.contact-link svg{flex-shrink:0;}
+.cinfo-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:24px;background:var(--border);}
+.cinfo{background:var(--cream);padding:16px;}
+.cinfo-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:6px;}
+.cinfo-val{font-size:12px;color:var(--dark);font-weight:300;line-height:1.5;}
 
-/* ════════════════════════════════════
-   CATALOG PAGE
-════════════════════════════════════ */
+/* CATALOG */
 #page-catalog{background:var(--bg);min-height:100vh;padding-bottom:80px;}
-.cat-scroll{
-  overflow-x:auto;padding:14px 16px 10px;
-  display:flex;gap:8px;scrollbar-width:none;
-  background:var(--white);
-  position:sticky;top:64px;z-index:100;
-  border-bottom:1px solid var(--border);
-}
+.cat-scroll{overflow-x:auto;padding:14px 16px 10px;display:flex;gap:8px;scrollbar-width:none;background:var(--white);position:sticky;top:64px;z-index:100;border-bottom:1px solid var(--border);}
 .cat-scroll::-webkit-scrollbar{display:none;}
-.cat-pill{
-  flex-shrink:0;padding:8px 18px;
-  border-radius:.px;border:1px solid var(--border);
-  font-family:'Montserrat',sans-serif;font-size:11px;
-  cursor:pointer;background:transparent;
-  color:var(--mid);white-space:nowrap;
-  letter-spacing:.06em;text-transform:uppercase;font-weight:400;
-  transition:all .2s;
-}
+.cat-pill{flex-shrink:0;padding:8px 18px;border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:11px;cursor:pointer;background:transparent;color:var(--mid);white-space:nowrap;letter-spacing:.06em;text-transform:uppercase;font-weight:400;transition:all .2s;}
 .cat-pill.active,.cat-pill:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
 .sec-head{padding:28px 18px 12px;}
 .sec-head h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;margin-bottom:8px;color:var(--dark);}
-.dbadge{display:inline-flex;align-items:center;background:var(--navy);color:#fff;padding:4px 12px;border-radius:.px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;}
+.dbadge{display:inline-flex;align-items:center;background:var(--navy);color:#fff;padding:4px 12px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;}
 .dnote{font-size:12px;color:var(--light);margin-top:5px;font-weight:300;}
-.cake-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px;}
-.ccard{background:var(--white);border-radius:4px;overflow:hidden;cursor:pointer;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;}
-.ccard:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(47,95,154,.1);}
-.ccard-img{width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:54px;background:linear-gradient(135deg,var(--bg),#EDD9A3);}
+.cake-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;padding:0 14px;background:var(--border);}
+.ccard{background:var(--white);overflow:hidden;cursor:pointer;transition:opacity .2s;}
+.ccard:hover{opacity:.85;}
+.ccard-img{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,var(--bg),#EDD9A3);}
 .ccard-body{padding:12px 13px 14px;}
 .ccard-name{font-size:12px;font-weight:400;color:var(--dark);margin-bottom:4px;line-height:1.4;}
 .ccard-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--navy);margin-bottom:10px;}
 .ccard-price span{font-size:11px;font-family:'Montserrat',sans-serif;color:var(--light);font-weight:300;}
-.ccard-btn{width:100%;background:var(--navy);color:#fff;border:none;padding:10px;border-radius:2px;font-size:11px;font-family:'Montserrat',sans-serif;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;font-weight:400;}
+.ccard-btn{width:100%;background:var(--navy);color:#fff;border:none;padding:10px;font-size:11px;font-family:'Montserrat',sans-serif;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;font-weight:400;}
 .ccard-btn:hover{background:var(--navy-dark);}
 
-/* Custom banner in catalog */
-.custom-banner{
-  margin:22px 14px 0;background:var(--bg);
-  border-radius:4px;border:1px solid var(--border);
-  padding:22px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;
-  transition:background .2s;
-}
+.custom-banner{margin:24px 14px 0;background:var(--bg);border:1px solid var(--border);padding:24px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:background .2s;}
 .custom-banner:hover{background:var(--navy);}
 .custom-banner:hover .custom-banner-title,.custom-banner:hover .custom-banner-sub,.custom-banner:hover .custom-banner-arrow{color:#fff;}
-.custom-banner-ico{font-size:32px;flex-shrink:0;}
 .custom-banner-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:4px;color:var(--dark);}
-.custom-banner-sub{font-size:12px;color:var(--mid);line-height:1.55;font-weight:300;}
+.custom-banner-sub{font-size:12px;color:var(--mid);line-height:1.6;font-weight:300;}
 .custom-banner-arrow{margin-left:auto;font-size:18px;color:var(--light);flex-shrink:0;}
 
-/* ════════════════════════════════════
-   DETAIL PAGE
-════════════════════════════════════ */
+/* DETAIL */
 #page-detail{background:var(--cream);min-height:100vh;padding-bottom:110px;}
 .back-btn{display:flex;align-items:center;gap:8px;padding:14px 18px;font-size:12px;color:var(--mid);cursor:pointer;background:transparent;border:none;font-family:'Montserrat',sans-serif;font-weight:400;letter-spacing:.04em;}
 .back-btn svg{width:16px;height:16px;}
 .back-btn:hover{color:var(--navy);}
-.d-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--bg),#EDD9A3);display:flex;align-items:center;justify-content:center;font-size:96px;}
-.d-thumbs{display:flex;gap:8px;padding:10px 16px;overflow-x:auto;scrollbar-width:none;}
+.d-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--bg),#EDD9A3);}
+.d-thumbs{display:flex;gap:1px;padding:10px 16px;overflow-x:auto;scrollbar-width:none;background:var(--border);}
 .d-thumbs::-webkit-scrollbar{display:none;}
-.d-thumb{width:60px;height:60px;border-radius:4px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--bg);transition:border-color .2s;}
+.d-thumb{width:60px;height:60px;border:2px solid transparent;cursor:pointer;flex-shrink:0;background:linear-gradient(135deg,var(--bg),#EDD9A3);transition:border-color .2s;}
 .d-thumb.active{border-color:var(--navy);}
 .d-content{padding:16px 20px;}
 .d-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;margin-bottom:6px;color:var(--dark);}
-.d-desc{font-size:12px;color:var(--mid);line-height:1.75;font-weight:300;margin-bottom:16px;}
+.d-desc{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:16px;}
 
-/* LIVE PRICE BOX */
-.price-box{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.price-box{background:var(--white);border:1px solid var(--border);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
 .price-label{font-size:11px;color:var(--light);font-weight:300;letter-spacing:.06em;text-transform:uppercase;}
 .price-total{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;color:var(--navy);}
 .price-breakdown{font-size:11px;color:var(--light);text-align:right;line-height:1.6;}
@@ -337,127 +190,115 @@ header{
 .rlist{display:flex;flex-direction:column;}
 .ritem{display:flex;align-items:center;gap:12px;padding:12px 0;cursor:pointer;border-bottom:1px solid var(--border);}
 .ritem:last-child{border-bottom:none;}
-.rthumb{width:46px;height:46px;border-radius:4px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.rthumb{width:46px;height:46px;flex-shrink:0;}
 .rinfo{flex:1;}
 .rname{font-size:13px;color:var(--dark);font-weight:300;}
 .rnote{font-size:11px;color:var(--light);margin-top:2px;font-weight:300;}
 .rprice{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--navy);font-weight:400;flex-shrink:0;margin-right:8px;}
-.rprice-extra{font-size:11px;color:var(--light);font-family:'Montserrat',sans-serif;font-weight:300;}
-.rcircle{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.rcircle{width:20px;height:20px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .rcircle.on{border-color:var(--navy);background:var(--navy);}
 .rcircle.on::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff;}
 
-.col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-.col-item{border-radius:4px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .2s;}
+.col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.col-item{overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .2s;}
 .col-item.sel{border-color:var(--navy);}
 .col-swatch{height:48px;}
 .col-lbl{background:var(--cream);padding:5px 6px;font-size:10px;text-align:center;font-weight:300;}
 
-.extras-check{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.extra-chip{border:1px solid var(--border);border-radius:4px;padding:10px 12px;cursor:pointer;background:var(--white);display:flex;flex-direction:column;gap:2px;transition:border-color .2s;}
-.extra-chip.on{border-color:var(--navy);background:rgba(47,95,154,.04);}
+.extras-check{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.extra-chip{border:none;padding:12px;cursor:pointer;background:var(--white);display:flex;flex-direction:column;gap:3px;transition:background .2s;}
+.extra-chip.on{background:rgba(47,95,154,.06);outline:1px solid var(--navy);outline-offset:-1px;}
 .extra-chip-top{display:flex;justify-content:space-between;align-items:flex-start;}
-.extra-ico{font-size:16px;}
+.extra-abbr{font-size:9px;letter-spacing:.1em;color:var(--light);text-transform:uppercase;font-weight:400;}
 .extra-price{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--navy);}
 .extra-name{font-size:11px;font-weight:400;color:var(--dark);margin-top:2px;}
 
-.notes-ta{width:100%;padding:12px;border:1px solid var(--border);border-radius:4px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--dark);background:var(--white);resize:none;min-height:72px;outline:none;font-weight:300;}
+.notes-ta{width:100%;padding:12px;border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:13px;color:var(--dark);background:var(--white);resize:none;min-height:72px;outline:none;font-weight:300;}
 .notes-ta:focus{border-color:var(--navy);}
 
-/* STICKY BAR */
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);padding:10px 18px;display:flex;gap:10px;align-items:center;z-index:150;box-shadow:0 -4px 18px rgba(0,0,0,.06);}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);padding:10px 18px;display:flex;gap:10px;align-items:center;z-index:150;box-shadow:0 -4px 18px rgba(0,0,0,.05);}
 .sticky-price{display:flex;flex-direction:column;}
 .sticky-price-amt{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--navy);font-weight:400;line-height:1;}
 .sticky-price-lbl{font-size:10px;color:var(--light);letter-spacing:.06em;text-transform:uppercase;margin-top:2px;}
-.qty-ctrl{display:flex;align-items:center;border:1px solid var(--border);border-radius:4px;overflow:hidden;flex-shrink:0;}
+.qty-ctrl{display:flex;align-items:center;border:1px solid var(--border);overflow:hidden;flex-shrink:0;}
 .qty-btn{width:38px;height:42px;border:none;background:var(--cream);color:var(--dark);font-size:18px;cursor:pointer;}
 .qty-v{width:32px;height:42px;text-align:center;line-height:42px;font-size:13px;border-left:1px solid var(--border);border-right:1px solid var(--border);}
-.add-btn{flex:1;background:var(--navy);color:#fff;border:none;border-radius:2px;height:42px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:400;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;}
+.add-btn{flex:1;background:var(--navy);color:#fff;border:none;height:42px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:400;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;}
 .add-btn:hover{background:var(--navy-dark);}
 
-/* ════════════════════════════════════
-   CUSTOM ORDER PAGE
-════════════════════════════════════ */
+/* CUSTOM ORDER — cream, no navy bg */
 #page-custom{background:var(--cream);min-height:100vh;padding-bottom:100px;}
-.custom-hero{background:var(--navy);padding:40px 22px 50px;color:#fff;text-align:center;}
-.custom-hero h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;font-style:italic;margin-bottom:10px;}
-.custom-hero p{font-size:13px;color:rgba(255,255,255,.6);font-weight:300;line-height:1.7;max-width:380px;margin:0 auto;}
+.custom-hero{background:var(--bg);padding:44px 22px 52px;text-align:center;border-bottom:1px solid var(--border);}
+.custom-hero h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;font-style:italic;margin-bottom:10px;color:var(--dark);}
+.custom-hero p{font-size:13px;color:var(--mid);font-weight:300;line-height:1.8;max-width:380px;margin:0 auto;}
 .custom-form-wrap{padding:28px 20px;}
-.custom-steps-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:24px;}
-.custom-steps-row::-webkit-scrollbar{display:none;}
-.custom-step-pill{flex-shrink:0;padding:7px 14px;border-radius:2px;font-size:11px;background:var(--bg);color:var(--mid);border:1px solid var(--border);letter-spacing:.04em;}
-.custom-step-pill.done{background:var(--blue);color:#fff;border-color:var(--blue);}
-.custom-step-pill.active{background:var(--navy);color:#fff;border-color:var(--navy);}
 
 .cfield{margin-bottom:16px;}
 .cfield label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:7px;font-weight:400;}
-.cfield input,.cfield select,.cfield textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:4px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--dark);background:var(--white);outline:none;font-weight:300;transition:border-color .2s;}
+.cfield input,.cfield select,.cfield textarea{width:100%;padding:12px 14px;border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:13px;color:var(--dark);background:var(--white);outline:none;font-weight:300;transition:border-color .2s;}
 .cfield input:focus,.cfield select:focus,.cfield textarea:focus{border-color:var(--navy);}
 .cfield textarea{resize:vertical;min-height:80px;}
 .cfield-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
-/* PHOTO UPLOAD */
-.upload-zone{border:1.5px dashed var(--border);border-radius:4px;padding:32px 20px;text-align:center;cursor:pointer;background:var(--white);transition:border-color .2s,background .2s;position:relative;overflow:hidden;}
-.upload-zone:hover,.upload-zone.dragover{border-color:var(--navy);background:rgba(47,95,154,.03);}
+.upload-zone{border:1.5px dashed var(--border);padding:36px 20px;text-align:center;cursor:pointer;background:var(--white);transition:border-color .2s;position:relative;overflow:hidden;}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--navy);}
 .upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
-.upload-icon{font-size:32px;margin-bottom:10px;}
+.upload-icon{margin-bottom:12px;display:flex;justify-content:center;}
+.upload-icon svg{width:28px;height:28px;stroke:var(--light);stroke-width:1.5;fill:none;}
 .upload-title{font-size:13px;font-weight:400;color:var(--dark);margin-bottom:4px;}
 .upload-sub{font-size:11px;color:var(--light);font-weight:300;}
 .upload-preview{margin-top:14px;display:none;}
-.upload-preview img{width:100%;max-height:200px;object-fit:cover;border-radius:4px;}
+.upload-preview img{width:100%;max-height:200px;object-fit:cover;}
 .upload-preview-name{font-size:11px;color:var(--mid);margin-top:6px;}
 
-/* Budget selector */
-.budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;}
-.budget-opt{border:1px solid var(--border);border-radius:4px;padding:12px 8px;text-align:center;cursor:pointer;background:var(--white);transition:all .2s;}
-.budget-opt.sel{border-color:var(--navy);background:rgba(47,95,154,.04);}
+.budget-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:6px;background:var(--border);}
+.budget-opt{border:none;padding:12px 8px;text-align:center;cursor:pointer;background:var(--white);transition:background .2s;}
+.budget-opt.sel{background:rgba(47,95,154,.06);outline:2px solid var(--navy);outline-offset:-2px;}
 .budget-amt{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:var(--navy);}
 .budget-lbl{font-size:10px;color:var(--light);margin-top:2px;font-weight:300;}
 
-.send-btn{width:100%;background:var(--navy);color:#fff;border:none;border-radius:2px;height:50px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:400;cursor:pointer;margin-top:4px;letter-spacing:.1em;text-transform:uppercase;}
+.send-btn{width:100%;background:var(--navy);color:#fff;border:none;height:50px;font-size:12px;font-family:'Montserrat',sans-serif;font-weight:400;cursor:pointer;margin-top:4px;letter-spacing:.1em;text-transform:uppercase;}
 .send-btn:hover{background:var(--navy-dark);}
 
-/* ════════════════════════════════════
-   CART PAGE
-════════════════════════════════════ */
+/* CART */
 #page-cart{background:var(--bg);min-height:100vh;padding:22px 18px 120px;}
 .cart-top{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
 .cart-top button{background:none;border:none;font-size:20px;cursor:pointer;color:var(--mid);}
 .cart-top h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;margin:0;color:var(--dark);}
 .cart-empty{text-align:center;padding:64px 20px;}
-.cart-empty .ei{font-size:52px;margin-bottom:14px;}
-.cart-empty p{font-size:13px;color:var(--light);margin-bottom:18px;font-weight:300;}
-.citem{background:var(--white);border-radius:4px;padding:14px;margin-bottom:10px;display:flex;gap:12px;border:1px solid var(--border);}
-.citem-icon{width:58px;height:58px;border-radius:4px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.cart-empty .ei{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;font-style:italic;color:var(--navy);margin-bottom:16px;opacity:.35;}
+.cart-empty p{font-size:13px;color:var(--light);margin-bottom:20px;font-weight:300;}
+.citem{background:var(--white);padding:14px;margin-bottom:1px;display:flex;gap:12px;}
+.citem-icon{width:58px;height:58px;background:linear-gradient(135deg,var(--bg),#EDD9A3);flex-shrink:0;}
 .citem-info{flex:1;}
 .citem-name{font-size:13px;font-weight:400;margin-bottom:2px;color:var(--dark);}
 .citem-det{font-size:11px;color:var(--light);line-height:1.7;font-weight:300;}
 .citem-price{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy);font-weight:400;white-space:nowrap;}
 .citem-rm{background:none;border:none;color:var(--light);font-size:14px;cursor:pointer;align-self:flex-start;}
 
-/* Cart totaal */
-.cart-totaal{background:var(--white);border-radius:4px;padding:14px 16px;margin-bottom:12px;border:1px solid var(--border);}
+.cart-totaal{background:var(--white);padding:14px 16px;margin-bottom:12px;border:1px solid var(--border);}
 .cart-totaal-row{display:flex;justify-content:space-between;font-size:12px;padding:7px 0;border-bottom:1px solid var(--border);font-weight:300;}
 .cart-totaal-row:last-child{border-bottom:none;font-weight:500;font-size:14px;padding-top:12px;}
 .cart-totaal-row .amt{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--navy);}
 .cart-totaal-row:last-child .amt{font-size:24px;}
 
-.contact-box{background:var(--white);border-radius:4px;padding:18px;margin-top:12px;border:1px solid var(--border);}
+.contact-box{background:var(--white);padding:18px;margin-top:12px;border:1px solid var(--border);}
 .contact-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:14px;color:var(--dark);}
 .fg{margin-bottom:12px;}
 .fg label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);margin-bottom:5px;}
-.fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:4px;font-family:'Montserrat',sans-serif;font-size:12px;color:var(--dark);background:var(--cream);outline:none;font-weight:300;}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:1px solid var(--border);font-family:'Montserrat',sans-serif;font-size:12px;color:var(--dark);background:var(--cream);outline:none;font-weight:300;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--navy);}
 .fg textarea{resize:vertical;min-height:64px;}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
-.success-box{background:var(--white);border-radius:4px;padding:32px 20px;text-align:center;margin-top:12px;border:1px solid var(--border);}
-.sicon{font-size:46px;margin-bottom:12px;}
+.success-box{background:var(--white);padding:36px 22px;text-align:center;margin-top:12px;border:1px solid var(--border);}
+.sicon{margin-bottom:16px;display:flex;justify-content:center;}
+.sicon svg{width:40px;height:40px;stroke:var(--navy);stroke-width:1.5;fill:none;}
 .stitle{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:8px;color:var(--dark);}
-.ssub{font-size:12px;color:var(--mid);line-height:1.7;font-weight:300;margin-bottom:18px;}
-.sig-btn{display:inline-block;background:var(--navy);color:#fff;padding:11px 24px;border-radius:2px;text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;}
+.ssub{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:20px;}
+.sig-btn{display:inline-block;background:var(--navy);color:#fff;padding:11px 26px;text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;}
 
-/* ────── BOTTOM NAV ────── */
+/* BOTTOM NAV */
 .bnav{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);display:flex;z-index:180;}
 .bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0 11px;border:none;background:transparent;cursor:pointer;font-family:'Montserrat',sans-serif;color:var(--light);font-size:9px;letter-spacing:.06em;gap:3px;text-transform:uppercase;font-weight:400;}
 .bnav-btn.active{color:var(--navy);}
@@ -489,15 +330,13 @@ header{
   </div>
 </header>
 
-<!-- ══════════════ HOME PAGE ══════════════ -->
+<!-- HOME PAGE -->
 <div id="page-home" class="page">
 
-  <!-- HERO -->
   <div class="hero">
     <span class="hero-tag">Handgemaakt in Gouda · Nederland</span>
     <h1>Sonya's Bakery</h1>
     <div class="hero-subtitle">Custom Sweets</div>
-    <div class="hero-divider"><div class="hero-diamond"></div></div>
     <p class="hero-sub">Taarten op maat voor elke gelegenheid — gemaakt met liefde, ontworpen speciaal voor jou.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="nav('catalog')">Bekijk taarten</button>
@@ -505,128 +344,119 @@ header{
     </div>
   </div>
 
-  <!-- SHOP BY OCCASION -->
   <div class="occasions-wrap">
     <span class="section-label">Winkel per gelegenheid</span>
     <h2 class="section-title">Voor elk <em>bijzonder moment</em></h2>
     <div class="occasions-grid">
       <div class="occ-tile" onclick="goCat('verjaardag')">
-        <span class="occ-ico">🎂</span>
+        <span class="occ-num">01</span>
         <span class="occ-name">Verjaardag</span>
-        <span class="occ-sub">Klassiek & feestelijk</span>
+        <span class="occ-sub">Klassiek &amp; feestelijk</span>
       </div>
       <div class="occ-tile" onclick="goCat('kids')">
-        <span class="occ-ico">🎈</span>
+        <span class="occ-num">02</span>
         <span class="occ-name">Kindertaarten</span>
-        <span class="occ-sub">Hot Wheels, prinsessen & meer</span>
+        <span class="occ-sub">Hot Wheels, prinsessen &amp; meer</span>
       </div>
       <div class="occ-tile" onclick="goCat('bruiloft')">
-        <span class="occ-ico">💍</span>
+        <span class="occ-num">03</span>
         <span class="occ-name">Bruiloft</span>
-        <span class="occ-sub">Tijdloos & elegant</span>
+        <span class="occ-sub">Tijdloos &amp; elegant</span>
       </div>
       <div class="occ-tile" onclick="goCat('smash')">
-        <span class="occ-ico">🍼</span>
+        <span class="occ-num">04</span>
         <span class="occ-name">Smash Cakes</span>
         <span class="occ-sub">Eerste verjaardag fotoshoot</span>
       </div>
     </div>
   </div>
 
-  <!-- FEATURED -->
   <div class="featured-wrap">
     <span class="section-label">Populair</span>
     <h2 class="section-title">Onze <em>favorieten</em></h2>
-    <div class="featured-scroll" id="featured-scroll">
-      <!-- Filled by JS -->
-    </div>
+    <div class="featured-scroll" id="featured-scroll"></div>
   </div>
 
-  <!-- OVER SONYA -->
   <div class="about-wrap" id="over-sonya">
     <div class="about-inner">
       <span class="section-label">Over Sonya</span>
       <h2 class="section-title">Hallo, ik ben <em>Sonya</em></h2>
       <p class="section-body">Vanuit mijn thuiskeuken in Gouda maak ik al jaren taarten op maat voor de mooiste momenten in jouw leven. Wat begon als een hobby groeide uit tot een echte passie — elke taart is een klein kunstwerkje.</p>
       <div class="about-quote">"Elke taart vertelt een verhaal. Ik wil dat jouw verhaal er prachtig uitziet én heerlijk smaakt."</div>
-      <p class="section-body">Of het nu gaat om een verjaardagstaart voor je kind, een elegante bruidstaart of een bijzonder cadeau — ik luister naar jouw wens en maak het werkelijkheid. Geen twee taarten zijn hetzelfde.</p>
+      <p class="section-body">Of het nu gaat om een verjaardagstaart voor je kind, een elegante bruidstaart of een bijzonder cadeau — ik luister naar jouw wens en maak het werkelijkheid.</p>
       <div class="about-grid">
-        <div class="about-card"><div class="about-card-ico">🎨</div><div class="about-card-title">Volledig op maat</div><div class="about-card-txt">Elk ontwerp is uniek en afgestemd op jouw wens.</div></div>
-        <div class="about-card"><div class="about-card-ico">🇳🇱</div><div class="about-card-title">Gevestigd in Gouda</div><div class="about-card-txt">Afhalen mogelijk. Bezorging op aanvraag.</div></div>
-        <div class="about-card"><div class="about-card-ico">🌿</div><div class="about-card-title">Verse ingrediénten</div><div class="about-card-txt">Alles gemaakt met verse, hoogwaardige producten.</div></div>
-        <div class="about-card"><div class="about-card-ico">💬</div><div class="about-card-title">Persoonlijk contact</div><div class="about-card-txt">Sonya bespreekt elk detail persoonlijk met je.</div></div>
+        <div class="about-card"><div class="about-card-num">I</div><div class="about-card-title">Volledig op maat</div><div class="about-card-txt">Elk ontwerp is uniek en afgestemd op jouw wens.</div></div>
+        <div class="about-card"><div class="about-card-num">II</div><div class="about-card-title">Gevestigd in Gouda</div><div class="about-card-txt">Afhalen mogelijk. Bezorging op aanvraag.</div></div>
+        <div class="about-card"><div class="about-card-num">III</div><div class="about-card-title">Verse ingrediënten</div><div class="about-card-txt">Alles gemaakt met verse, hoogwaardige producten.</div></div>
+        <div class="about-card"><div class="about-card-num">IV</div><div class="about-card-title">Persoonlijk contact</div><div class="about-card-txt">Sonya bespreekt elk detail persoonlijk met je.</div></div>
       </div>
     </div>
   </div>
 
-  <!-- HOE WERKT HET -->
   <div class="how-wrap">
     <span class="section-label">Hoe werkt het?</span>
     <h2 class="section-title">Jouw taart in <em>4 stappen</em></h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div><div class="step-title">Kies je taart & opties</div><div class="step-txt">Blader door de collectie of doe een volledig custom aanvraag met eigen foto. Kies grootte, vulling en versieringen — de prijs zie je meteen.</div></div></div>
-      <div class="step"><div class="step-num">02</div><div><div class="step-title">Sonya neemt contact op</div><div class="step-txt">Na je bestelling neem ik snel contact op om alles te bevestigen. Bij vaste taarten zie je de prijs al direct — geen verrassingen!</div></div></div>
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Kies je taart &amp; opties</div><div class="step-txt">Blader door de collectie of doe een custom aanvraag. Kies grootte, vulling en versieringen — de prijs zie je meteen.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Sonya neemt contact op</div><div class="step-txt">Na je bestelling neem ik snel contact op om alles te bevestigen. Geen verrassingen!</div></div></div>
       <div class="step"><div class="step-num">03</div><div><div class="step-title">De taart wordt gemaakt</div><div class="step-txt">Met liefde en vakmanschap maak ik jouw taart van begin tot eind, klaar voor de afgesproken datum.</div></div></div>
       <div class="step"><div class="step-num">04</div><div><div class="step-title">Ophalen of bezorging</div><div class="step-txt">Haal je taart op in Gouda of laat hem bezorgen in de regio (in overleg).</div></div></div>
     </div>
-    <div style="margin-top:28px;text-align:center;">
-      <button class="btn-primary" onclick="nav('catalog')" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);">Begin hier →</button>
+    <div style="margin-top:32px;text-align:center;">
+      <button class="btn-primary" onclick="nav('catalog')">Begin hier</button>
     </div>
   </div>
 
-  <!-- SMAKEN -->
   <div class="smaken-wrap">
     <span class="section-label">Onze smaken</span>
     <h2 class="section-title">Heerlijke <em>vullingen</em></h2>
     <p class="section-body">Kies bij het bestellen jouw favoriete vulling — of combineer er twee bij een multi-etage taart!</p>
-    <div class="smaken-grid">
-      <div class="smaak-card"><div class="smaak-ico">🍦</div><div class="smaak-name">Vanille Droom</div><div class="smaak-note">Biscuit, banketbakkersroom, slagroom</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🍫</div><div class="smaak-name">Chocolade</div><div class="smaak-note">Chocoladebiscuit, donkere ganache</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🍋</div><div class="smaak-name">Citroen Fris</div><div class="smaak-note">Citroenbiscuit, lemoncurd, slagroom</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🍓</div><div class="smaak-name">Aardbei & Room</div><div class="smaak-note">Vanillebiscuit, aardbeienjam, verse aardbeien</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🍪</div><div class="smaak-name">Biscoff Karamel</div><div class="smaak-note">Karamelcake, Biscoff room, gezouten karamel</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🫐</div><div class="smaak-name">Framboos & Amandel</div><div class="smaak-note">Amandelcake, frambozenconfituur</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🌿</div><div class="smaak-name">Pistache & Roos</div><div class="smaak-note">Pistachebiscuit, rozenroom, witte choco</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🍒</div><div class="smaak-name">Zwarte Woud</div><div class="smaak-note">Chocoladecake, kersen, slagroom, kirsch</div></div>
-      <div class="smaak-card"><div class="smaak-ico">🍌</div><div class="smaak-name">Banaan & Karamel</div><div class="smaak-note">Bananenbiscuit, karamelroom, pralinécrunch</div></div>
-      <div class="smaak-card"><div class="smaak-ico">❤️</div><div class="smaak-name">Red Velvet</div><div class="smaak-note">Klassiek red velvet, cream cheese frosting</div></div>
+    <div class="smaken-list">
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Vanille Droom</div><div class="smaak-note">Biscuit, banketbakkersroom, slagroom</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Chocolade</div><div class="smaak-note">Chocoladebiscuit, donkere ganache</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Citroen Fris</div><div class="smaak-note">Citroenbiscuit, lemoncurd, slagroom</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Aardbei &amp; Room</div><div class="smaak-note">Vanillebiscuit, aardbeienjam, verse aardbeien</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Biscoff Karamel</div><div class="smaak-note">Karamelcake, Biscoff room, gezouten karamel</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Framboos &amp; Amandel</div><div class="smaak-note">Amandelcake, frambozenconfituur</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Pistache &amp; Roos</div><div class="smaak-note">Pistachebiscuit, rozenroom, witte choco</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Zwarte Woud</div><div class="smaak-note">Chocoladecake, kersen, slagroom, kirsch</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Banaan &amp; Karamel</div><div class="smaak-note">Bananenbiscuit, karamelroom, pralinécrunch</div></div>
+      <div class="smaak-row"><div class="smaak-dot"></div><div class="smaak-name">Red Velvet</div><div class="smaak-note">Klassiek red velvet, cream cheese frosting</div></div>
     </div>
   </div>
 
-  <!-- GALLERY / INSTAGRAM -->
   <div class="gallery-wrap">
     <span class="section-label">Inspiratie</span>
     <h2 class="section-title">Bekijk onze <em>creaties</em></h2>
     <p class="section-body" style="margin-bottom:4px;">Volg ons op Instagram: <strong style="color:var(--navy);">@sonyas.bakery</strong></p>
     <div class="gallery-scroll">
-      <div class="gallery-tile">🎂</div>
-      <div class="gallery-tile">🏎️</div>
-      <div class="gallery-tile">🌸</div>
-      <div class="gallery-tile">❤️</div>
-      <div class="gallery-tile">🎁</div>
-      <div class="gallery-tile">👑</div>
-      <div class="gallery-tile">💐</div>
-      <div class="gallery-tile">🌊</div>
+      <div class="gallery-tile" style="background:linear-gradient(135deg,#F6E6B8,#EDD9A3);"></div>
+      <div class="gallery-tile" style="background:linear-gradient(150deg,#E8D4B8,#D4C4A8);"></div>
+      <div class="gallery-tile" style="background:linear-gradient(135deg,#F0E0C8,#E8D0B8);"></div>
+      <div class="gallery-tile" style="background:linear-gradient(120deg,#EDD9A3,#E4C888);"></div>
+      <div class="gallery-tile" style="background:linear-gradient(135deg,#F8F1E3,#F0E6D0);"></div>
+      <div class="gallery-tile" style="background:linear-gradient(150deg,#E4D4C0,#D8C8B0);"></div>
+      <div class="gallery-tile" style="background:linear-gradient(135deg,#F2E4C8,#EAD8B8);"></div>
+      <div class="gallery-tile" style="background:linear-gradient(120deg,#EAE0D0,#E0D4C0);"></div>
     </div>
-    <div style="margin-top:16px;">
-      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;">
-        📸 Volg @sonyas.bakery
+    <div style="margin-top:18px;">
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Volg @sonyas.bakery
       </a>
     </div>
   </div>
 
-  <!-- BESTEL BANNER -->
   <div class="bestel-wrap">
     <span class="section-label" style="display:block;text-align:center;">Klaar om te bestellen?</span>
     <h2 class="section-title" style="text-align:center;">Jouw droomtaart <em>begint hier</em></h2>
-    <p class="section-body" style="text-align:center;max-width:380px;margin:0 auto 24px;">Kies uit onze collectie met vaste prijzen, of doe een volledig eigen aanvraag met je eigen foto.</p>
+    <p class="section-body" style="text-align:center;max-width:380px;margin:0 auto 28px;">Kies uit onze collectie met vaste prijzen, of doe een volledig eigen aanvraag met je eigen foto.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
       <button class="btn-primary" onclick="nav('catalog')">Taartencollectie</button>
       <button class="btn-outline" onclick="nav('custom')">Custom aanvraag</button>
     </div>
   </div>
 
-  <!-- FAQ -->
   <div class="faq-wrap">
     <span class="section-label">Veelgestelde vragen</span>
     <h2 class="section-title" style="margin-bottom:20px;">Vragen? <em>Antwoorden.</em></h2>
@@ -638,14 +468,19 @@ header{
     <div class="faq-item" onclick="tFaq(this)"><div class="faq-q">Welke allergenen worden gebruikt?<span>+</span></div><div class="faq-a">De meeste taarten bevatten gluten, eieren en zuivel. Geef allergieën of dieetwensen aan bij de bestelling — Sonya kijkt dan wat mogelijk is.</div></div>
   </div>
 
-  <!-- CONTACT -->
   <div class="contact-strip" id="contact-sec">
-    <span class="section-label" style="color:rgba(255,255,255,.35);">Contact</span>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,40px);font-weight:300;font-style:italic;margin-bottom:10px;color:#fff;">Neem contact op</h2>
-    <p style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.75;max-width:340px;margin:0 auto;font-weight:300;">Heb je een vraag? Stuur een berichtje via Instagram of WhatsApp — Sonya helpt je graag!</p>
+    <span class="section-label">Contact</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,40px);font-weight:300;font-style:italic;margin-bottom:12px;color:var(--dark);">Neem contact op</h2>
+    <p style="font-size:12px;color:var(--mid);line-height:1.8;max-width:340px;margin:0 auto;font-weight:300;">Heb je een vraag? Stuur een berichtje via Instagram of WhatsApp — Sonya helpt je graag!</p>
     <div class="contact-links">
-      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="contact-link">📸 @sonyas.bakery</a>
-      <a href="https://wa.me/31" target="_blank" class="contact-link">💬 WhatsApp</a>
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="contact-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        @sonyas.bakery
+      </a>
+      <a href="https://wa.me/31" target="_blank" class="contact-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
     </div>
     <div class="cinfo-row">
       <div class="cinfo"><div class="cinfo-lbl">Locatie</div><div class="cinfo-val">Gouda, Nederland</div></div>
@@ -655,17 +490,16 @@ header{
   <div style="height:80px;"></div>
 </div>
 
-<!-- ══════════════ CATALOG PAGE ══════════════ -->
+<!-- CATALOG PAGE -->
 <div id="page-catalog" class="page hidden">
   <div class="cat-scroll" id="cats">
-    <button class="cat-pill active" onclick="setCat('verjaardag',this)">🎂 Verjaardag</button>
-    <button class="cat-pill" onclick="setCat('kids',this)">🎈 Kindertaarten</button>
-    <button class="cat-pill" onclick="setCat('bruiloft',this)">💍 Bruiloft</button>
-    <button class="cat-pill" onclick="setCat('smash',this)">🍼 Smash cakes</button>
+    <button class="cat-pill active" onclick="setCat('verjaardag',this)">Verjaardag</button>
+    <button class="cat-pill" onclick="setCat('kids',this)">Kindertaarten</button>
+    <button class="cat-pill" onclick="setCat('bruiloft',this)">Bruiloft</button>
+    <button class="cat-pill" onclick="setCat('smash',this)">Smash cakes</button>
   </div>
   <div id="cat-body"></div>
-  <div class="custom-banner" onclick="nav('custom')" style="margin-top:24px;">
-    <div class="custom-banner-ico">✏️</div>
+  <div class="custom-banner" onclick="nav('custom')">
     <div>
       <div class="custom-banner-title">Eigen ontwerp?</div>
       <div class="custom-banner-sub">Upload je eigen foto of inspiratie en Sonya maakt het voor je — volledig op maat, prijs in overleg.</div>
@@ -675,7 +509,7 @@ header{
   <div style="height:80px;"></div>
 </div>
 
-<!-- ══════════════ DETAIL PAGE ══════════════ -->
+<!-- DETAIL PAGE -->
 <div id="page-detail" class="page hidden">
   <button class="back-btn" onclick="nav('catalog')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
@@ -725,7 +559,7 @@ header{
   </div>
 </div>
 
-<!-- ══════════════ CUSTOM ORDER PAGE ══════════════ -->
+<!-- CUSTOM ORDER PAGE -->
 <div id="page-custom" class="page hidden">
   <button class="back-btn" onclick="nav('catalog')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7 7M5 12l7-7"/></svg>
@@ -740,7 +574,9 @@ header{
       <label>Jouw inspiratiefoto of ontwerp (optioneel)</label>
       <div class="upload-zone" id="upload-zone">
         <input type="file" accept="image/*" id="photo-input" onchange="handleUpload(this)">
-        <div class="upload-icon">📸</div>
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
         <div class="upload-title">Tik om een foto te uploaden</div>
         <div class="upload-sub">JPG, PNG of HEIC · max 10 MB</div>
         <div class="upload-preview" id="upload-preview">
@@ -801,13 +637,13 @@ header{
         <option>Vanille Droom</option>
         <option>Chocolade Verwennerij</option>
         <option>Citroen Fris</option>
-        <option>Aardbei & Room</option>
+        <option>Aardbei &amp; Room</option>
         <option>Biscoff Karamel</option>
-        <option>Framboos & Amandel</option>
-        <option>Pistache & Roos</option>
+        <option>Framboos &amp; Amandel</option>
+        <option>Pistache &amp; Roos</option>
         <option>Red Velvet</option>
         <option>Zwarte Woud</option>
-        <option>Banaan & Karamel</option>
+        <option>Banaan &amp; Karamel</option>
         <option>Combinatie (vermeld in beschrijving)</option>
       </select>
     </div>
@@ -816,10 +652,10 @@ header{
       <div class="budget-grid" id="budget-grid">
         <div class="budget-opt" onclick="selBudget('€50–€100',this)"><div class="budget-amt">€50–€100</div><div class="budget-lbl">Kleine taart</div></div>
         <div class="budget-opt" onclick="selBudget('€100–€150',this)"><div class="budget-amt">€100–€150</div><div class="budget-lbl">Middelgroot</div></div>
-        <div class="budget-opt" onclick="selBudget('€150–€200',this)"><div class="budget-amt">€150–€200</div><div class="budget-lbl">Groter / meerdere lagen</div></div>
+        <div class="budget-opt" onclick="selBudget('€150–€200',this)"><div class="budget-amt">€150–€200</div><div class="budget-lbl">Groter / meer lagen</div></div>
         <div class="budget-opt" onclick="selBudget('€200–€300',this)"><div class="budget-amt">€200–€300</div><div class="budget-lbl">Uitgebreid design</div></div>
         <div class="budget-opt" onclick="selBudget('€300–€500',this)"><div class="budget-amt">€300–€500</div><div class="budget-lbl">Bruidstaart / luxe</div></div>
-        <div class="budget-opt" onclick="selBudget('€500+',this)"><div class="budget-amt">€500+</div><div class="budget-lbl">Geen limiet / verrassing</div></div>
+        <div class="budget-opt" onclick="selBudget('€500+',this)"><div class="budget-amt">€500+</div><div class="budget-lbl">Geen limiet</div></div>
       </div>
     </div>
     <div class="cfield">
@@ -837,8 +673,8 @@ header{
       <label>E-mail of WhatsApp nummer</label>
       <input type="text" id="c-contact" placeholder="Zodat Sonya contact kan opnemen">
     </div>
-    <div style="background:var(--bg);border-radius:4px;padding:14px;margin-bottom:16px;font-size:12px;color:var(--mid);line-height:1.7;font-weight:300;border:1px solid var(--border);">
-      💡 <strong style="font-weight:500;color:var(--dark);">Hoe werkt het?</strong> Na je aanvraag neemt Sonya binnen 1–2 werkdagen contact op om alles te bespreken en een prijsopgave te maken. Geen verplichtingen!
+    <div style="background:var(--bg);padding:14px;margin-bottom:16px;font-size:12px;color:var(--mid);line-height:1.75;font-weight:300;border:1px solid var(--border);">
+      <strong style="font-weight:500;color:var(--dark);">Hoe werkt het?</strong> Na je aanvraag neemt Sonya binnen 1–2 werkdagen contact op om alles te bespreken en een prijsopgave te maken. Geen verplichtingen!
     </div>
     <button class="send-btn" onclick="submitCustom()">Aanvraag versturen naar Sonya</button>
     <div id="custom-success" style="display:none;"></div>
@@ -846,7 +682,7 @@ header{
   <div style="height:80px;"></div>
 </div>
 
-<!-- ══════════════ CART PAGE ══════════════ -->
+<!-- CART PAGE -->
 <div id="page-cart" class="page hidden">
   <div class="cart-top">
     <button onclick="nav('catalog')">←</button>
@@ -879,21 +715,24 @@ header{
 </div>
 
 <script>
-/* ═══════════════════════════════════════
-   DATA — VULLINGEN, KLEUREN, EXTRA'S, CATALOGUS
-═══════════════════════════════════════ */
 const FILLS=[
-  {id:'vanilla',  ico:'🍦', name:'Vanille Droom',      note:'Biscuit, banketbakkersroom, slagroom'},
-  {id:'choc',     ico:'🍫', name:'Chocolade',           note:'Chocoladebiscuit, donkere ganache, chocoladeroom'},
-  {id:'lemon',    ico:'🍋', name:'Citroen Fris',        note:'Citroenbiscuit, lemoncurd, slagroom'},
-  {id:'strawb',   ico:'🍓', name:'Aardbei & Room',      note:'Vanillebiscuit, aardbeienjam, verse aardbeien'},
-  {id:'biscoff',  ico:'🍪', name:'Biscoff Karamel',     note:'Karamelcake, Biscoff room, gezouten karamel'},
-  {id:'raspberry',ico:'🫐', name:'Framboos & Amandel',  note:'Amandelcake, frambozenconfituur, slagroom'},
-  {id:'pistachio',ico:'🌿', name:'Pistache & Roos',     note:'Pistachebiscuit, rozenroom, witte choco'},
-  {id:'redvelvet',ico:'❤️', name:'Red Velvet',          note:'Klassiek red velvet, cream cheese frosting'},
-  {id:'blackfor', ico:'🍒', name:'Zwarte Woud',         note:'Chocoladecake, kersen, slagroom, kirsch'},
-  {id:'banana',   ico:'🍌', name:'Banaan & Karamel',    note:'Bananenbiscuit, karamelroom, pralinécrunch'},
+  {id:'vanilla',  name:'Vanille Droom',      note:'Biscuit, banketbakkersroom, slagroom'},
+  {id:'choc',     name:'Chocolade',           note:'Chocoladebiscuit, donkere ganache, chocoladeroom'},
+  {id:'lemon',    name:'Citroen Fris',        note:'Citroenbiscuit, lemoncurd, slagroom'},
+  {id:'strawb',   name:'Aardbei & Room',      note:'Vanillebiscuit, aardbeienjam, verse aardbeien'},
+  {id:'biscoff',  name:'Biscoff Karamel',     note:'Karamelcake, Biscoff room, gezouten karamel'},
+  {id:'raspberry',name:'Framboos & Amandel',  note:'Amandelcake, frambozenconfituur, slagroom'},
+  {id:'pistachio',name:'Pistache & Roos',     note:'Pistachebiscuit, rozenroom, witte choco'},
+  {id:'redvelvet',name:'Red Velvet',          note:'Klassiek red velvet, cream cheese frosting'},
+  {id:'blackfor', name:'Zwarte Woud',         note:'Chocoladecake, kersen, slagroom, kirsch'},
+  {id:'banana',   name:'Banaan & Karamel',    note:'Bananenbiscuit, karamelroom, pralinécrunch'},
 ];
+
+const FILL_COLS={
+  vanilla:'#F5D770',choc:'#5A2808',lemon:'#F0E460',strawb:'#F08070',
+  biscoff:'#C87840',raspberry:'#C04070',pistachio:'#80A860',
+  redvelvet:'#C02020',blackfor:'#302038',banana:'#C8A040'
+};
 
 const COLS=[
   {id:'white',     name:'Puur Wit',       hex:'#F5F5F0'},
@@ -911,115 +750,96 @@ const COLS=[
 ];
 
 const EXTRAS=[
-  {id:'sflow',  ico:'🌸', name:'Suikerbloemen',    price:15},
-  {id:'fflow',  ico:'💐', name:'Verse bloemen',     price:20},
-  {id:'gold',   ico:'✨', name:'Bladgoud',          price:12},
-  {id:'name',   ico:'✍️', name:'Naam / tekst',      price:0},
-  {id:'photo',  ico:'📸', name:'Eetbare foto',      price:10},
-  {id:'drip',   ico:'🍫', name:'Chocolade drip',    price:8},
-  {id:'mac',    ico:'🍬', name:'Macaron topper',    price:12},
-  {id:'tier',   ico:'🎂', name:'Extra etage',       price:40},
-  {id:'topper', ico:'🏆', name:'Fondant figuurtje', price:25},
+  {id:'sflow',  name:'Suikerbloemen',    price:15},
+  {id:'fflow',  name:'Verse bloemen',    price:20},
+  {id:'gold',   name:'Bladgoud',         price:12},
+  {id:'name',   name:'Naam / tekst',     price:0},
+  {id:'photo',  name:'Eetbare foto',     price:10},
+  {id:'drip',   name:'Chocolade drip',   price:8},
+  {id:'mac',    name:'Macaron topper',   price:12},
+  {id:'tier',   name:'Extra etage',      price:40},
+  {id:'topper', name:'Fondant figuurtje',price:25},
 ];
 
 const CATS={
   verjaardag:{
     label:"Verjaardagstaarten", badge:"5–7 dagen van tevoren bestellen", note:"Prijs zichtbaar per gekozen formaat",
     cakes:[
-      {id:'v-choc',   ico:'🎂', name:'Chocolade Droom',
+      {id:'v-choc',   name:'Chocolade Droom',
        desc:'Rijke chocoladetaart met ganache drip, chocoladescherven en gouden details. Feestelijk en onweerstaanbaar.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],
-       col:true, ext:true},
-      {id:'v-bessen', ico:'🍓', name:'Bessen & Room',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],col:true,ext:true},
+      {id:'v-bessen', name:'Bessen & Room',
        desc:'Luchtige taart met verse aardbei of framboos, gespoten room en seizoensfruit bovenop. Fris en elegant.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],
-       col:true, ext:true},
-      {id:'v-vanilla',ico:'🍦', name:'Vanille Klassiek',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],col:true,ext:true},
+      {id:'v-vanilla',name:'Vanille Klassiek',
        desc:'Tijdloze vanilletaart met banketbakkersroom, roomslagroom en een mooie afwerking naar keuze.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:50},{l:'M – 1,8 kg · 10–12 pers',p:70},{l:'L – 2,5 kg · 14–16 pers',p:88}],
-       col:true, ext:true},
-      {id:'v-cijfer', ico:'🔢', name:'Cijfertaart',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:50},{l:'M – 1,8 kg · 10–12 pers',p:70},{l:'L – 2,5 kg · 14–16 pers',p:88}],col:true,ext:true},
+      {id:'v-cijfer', name:'Cijfertaart',
        desc:'Jouw leeftijd in biscuit — gevuld met room en vers fruit, versierd met bloemen en macarons.',
-       sizes:[{l:'1 cijfer · 8–10 pers',p:65},{l:'2 cijfers · 14–16 pers',p:110}],
-       col:true, ext:false},
-      {id:'v-lemon',  ico:'🍋', name:'Citroen Droomtaart',
+       sizes:[{l:'1 cijfer · 8–10 pers',p:65},{l:'2 cijfers · 14–16 pers',p:110}],col:true,ext:false},
+      {id:'v-lemon',  name:'Citroen Droomtaart',
        desc:'Verfrissende citroentaart met lemon curd, luchtige slagroom en suikercitroen decoratie.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],
-       col:true, ext:true},
-      {id:'v-biscoff',ico:'🍪', name:'Biscoff Karamel',
-       desc:'Karamelcake met Biscoff room, gezouten karamelsaus en knapperige strooisels. Onmisbaar voor Biscoff fans.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:60},{l:'M – 1,8 kg · 10–12 pers',p:80},{l:'L – 2,5 kg · 14–16 pers',p:100}],
-       col:true, ext:true},
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:55},{l:'M – 1,8 kg · 10–12 pers',p:75},{l:'L – 2,5 kg · 14–16 pers',p:95}],col:true,ext:true},
+      {id:'v-biscoff',name:'Biscoff Karamel',
+       desc:'Karamelcake met Biscoff room, gezouten karamelsaus en knapperige strooisels.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:60},{l:'M – 1,8 kg · 10–12 pers',p:80},{l:'L – 2,5 kg · 14–16 pers',p:100}],col:true,ext:true},
     ]
   },
   kids:{
     label:"Kindertaarten", badge:"Volgende dag ophalen mogelijk", note:"Prijs zichtbaar per gekozen formaat",
     cakes:[
-      {id:'k-hotwheels',ico:'🏎️', name:'Hot Wheels',
-       desc:'Iconische Hot Wheels baan met vlammen en racevlag. Naam inbegrepen. Een droom voor autoliefhebbers!',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],
-       col:false, ext:true},
-      {id:'k-bouw',     ico:'🚧', name:'Bouwplaats',
+      {id:'k-hotwheels',name:'Hot Wheels',
+       desc:'Iconische Hot Wheels baan met vlammen en racevlag. Naam inbegrepen.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],col:false,ext:true},
+      {id:'k-bouw',     name:'Bouwplaats',
        desc:'Kiepwagens, graafmachines en verkeersborden — perfect voor kleine bouwers. Naam inbegrepen.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],
-       col:false, ext:true},
-      {id:'k-voetbal',  ico:'⚽', name:'Voetbalclub',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],col:false,ext:true},
+      {id:'k-voetbal',  name:'Voetbalclub',
        desc:'Multi-etage stadion taart met clublogo, groen veld en spelerfiguurtje. Naam inbegrepen.',
-       sizes:[{l:'2 etages · 10–15 pers',p:110},{l:'3 etages · 20–25 pers',p:155}],
-       col:false, ext:true},
-      {id:'k-jungle',   ico:'🦁', name:'Jungle Feest',
+       sizes:[{l:'2 etages · 10–15 pers',p:110},{l:'3 etages · 20–25 pers',p:155}],col:false,ext:true},
+      {id:'k-jungle',   name:'Jungle Feest',
        desc:'Safari met handgemaakte fondant dieren — leeuw, olifant, giraf en aap. Naam inbegrepen.',
-       sizes:[{l:'M – 2,5 kg · 9–10 pers',p:95},{l:'L – 3,5 kg · 12–14 pers',p:125}],
-       col:false, ext:true},
-      {id:'k-prinses',  ico:'👑', name:'Prinsessentaart',
-       desc:'Elegante taart met glinsterende kroon en "Gefeliciteerd" versiering. Kies jouw kleur.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],
-       col:true, ext:true},
-      {id:'k-konijn',   ico:'🐰', name:'Konijntjes Tuin',
+       sizes:[{l:'M – 2,5 kg · 9–10 pers',p:95},{l:'L – 3,5 kg · 12–14 pers',p:125}],col:false,ext:true},
+      {id:'k-prinses',  name:'Prinsessentaart',
+       desc:'Elegante taart met glinsterende kroon. Kies jouw kleur.',
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:65},{l:'M – 2 kg · 10–12 pers',p:90},{l:'L – 3 kg · 14–16 pers',p:115}],col:true,ext:true},
+      {id:'k-konijn',   name:'Konijntjes Tuin',
        desc:'Schattig konijntje met handgemaakte bloemetjes en vlindertjes. Zacht en pastel.',
-       sizes:[{l:'S – 1 kg · 6–8 pers',p:60},{l:'M – 2 kg · 10–12 pers',p:85}],
-       col:true, ext:true},
+       sizes:[{l:'S – 1 kg · 6–8 pers',p:60},{l:'M – 2 kg · 10–12 pers',p:85}],col:true,ext:true},
     ]
   },
   bruiloft:{
     label:"Bruidstaarten", badge:"Min. 2–3 weken van tevoren", note:"Prijs zichtbaar per gekozen formaat",
     cakes:[
-      {id:'b-bloem',  ico:'🌸', name:'Bloemen Bruidstaart',
-       desc:'Multi-etage met cascades van suiker- of verse bloemen en handgeschilderde details. Volledig op maat.',
-       sizes:[{l:'2 etages · 20–25 pers',p:220},{l:'3 etages · 35–45 pers',p:320},{l:'4 etages · 60+ pers',p:480}],
-       col:true, ext:true},
-      {id:'b-wit',    ico:'🤍', name:'Klassiek Wit',
-       desc:'Tijdloos witte fondanttaart met delicate piping, parel details en verse bloemen op aanvraag.',
-       sizes:[{l:'2 etages · 20–25 pers',p:200},{l:'3 etages · 35–45 pers',p:295}],
-       col:true, ext:true},
-      {id:'b-rustiek',ico:'🌿', name:'Rustieke Naked Cake',
-       desc:'Zichtbare biscuitlagen met verse bessen en seizoensbloemen. Puur en ongedwongen mooi.',
-       sizes:[{l:'2 etages · 15–20 pers',p:175},{l:'3 etages · 30–40 pers',p:260}],
-       col:false, ext:true},
+      {id:'b-bloem',  name:'Bloemen Bruidstaart',
+       desc:'Multi-etage met cascades van suiker- of verse bloemen en handgeschilderde details.',
+       sizes:[{l:'2 etages · 20–25 pers',p:220},{l:'3 etages · 35–45 pers',p:320},{l:'4 etages · 60+ pers',p:480}],col:true,ext:true},
+      {id:'b-wit',    name:'Klassiek Wit',
+       desc:'Tijdloos witte fondanttaart met delicate piping en parel details.',
+       sizes:[{l:'2 etages · 20–25 pers',p:200},{l:'3 etages · 35–45 pers',p:295}],col:true,ext:true},
+      {id:'b-rustiek',name:'Rustieke Naked Cake',
+       desc:'Zichtbare biscuitlagen met verse bessen en seizoensbloemen.',
+       sizes:[{l:'2 etages · 15–20 pers',p:175},{l:'3 etages · 30–40 pers',p:260}],col:false,ext:true},
     ]
   },
   smash:{
-    label:"Smash cakes", badge:"Volgende dag ophalen mogelijk", note:"Speciaal voor eyrste verjaardag fotoshoots",
+    label:"Smash cakes", badge:"Volgende dag ophalen mogelijk", note:"Speciaal voor eerste verjaardag fotoshoots",
     cakes:[
-      {id:'s-beer',  ico:'🐻', name:'Baby Beer Smash',
+      {id:'s-beer',  name:'Baby Beer Smash',
        desc:'Schattig beertje, zachte pastels en een "1" kaarsje. Perfect voor eerste verjaardag fotoshoots.',
-       sizes:[{l:'XS – 0,5 kg · smash only',p:28},{l:'XS + extra taart · smash + 6 plakjes',p:45}],
-       col:true, ext:false},
-      {id:'s-bloem', ico:'🌸', name:'Bloesem Smash',
-       desc:'Zachte bloemtaart met gedrukte suikerbloemen — lief, zacht en heel fotogeniek.',
-       sizes:[{l:'XS – 0,5 kg · smash only',p:28},{l:'XS + extra taart · smash + 6 plakjes',p:45}],
-       col:true, ext:false},
+       sizes:[{l:'XS – 0,5 kg · smash only',p:28},{l:'XS + extra taart · smash + 6 plakjes',p:45}],col:true,ext:false},
+      {id:'s-bloem', name:'Bloesem Smash',
+       desc:'Zachte bloemtaart met gedrukte suikerbloemen — lief, zacht en fotogeniek.',
+       sizes:[{l:'XS – 0,5 kg · smash only',p:28},{l:'XS + extra taart · smash + 6 plakjes',p:45}],col:true,ext:false},
     ]
   }
 };
 
-/* ═══════════════════ STATE ═══════════════════ */
 let curCat='verjaardag', curCake=null, qty=1;
 let selSize=0, selFill=null, selCol=null, selExt=[];
 let selBudgetVal='';
 let cart=[];
 
-/* ═══════════════════ LIVE PRIJS ═══════════════════ */
 function calcPrice(){
   if(!curCake) return 0;
   let base=curCake.sizes[selSize]?.p||0;
@@ -1043,7 +863,6 @@ function updatePrice(){
   document.getElementById('price-breakdown').textContent=calcBreakdown()||'Kies een formaat om te beginnen';
 }
 
-/* ═══════════════════ ROUTING ═══════════════════ */
 function nav(p){
   ['home','catalog','detail','custom','cart'].forEach(x=>
     document.getElementById('page-'+x).classList.toggle('hidden',x!==p));
@@ -1058,8 +877,7 @@ function nav(p){
 }
 
 function goCat(cat){
-  curCat=cat;
-  nav('catalog');
+  curCat=cat;nav('catalog');
   document.querySelectorAll('.cat-pill').forEach((p,i)=>{
     const cats=['verjaardag','kids','bruiloft','smash'];
     p.classList.toggle('active',cats[i]===cat);
@@ -1067,12 +885,9 @@ function goCat(cat){
   renderCat();
 }
 
-function toContact(){naw('home');setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),120);}
-
-/* ═══════════════════ FAQ ═══════════════════ */
+function toContact(){nav('home');setTimeout(()=>document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'}),120);}
 function tFaq(el){el.classList.toggle('open');}
 
-/* ═══════════════════ CATALOG ═══════════════════ */
 function setCat(cat,btn){
   curCat=cat;
   document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
@@ -1091,28 +906,24 @@ function renderCat(){
     <div class="cake-grid">
       ${d.cakes.map(c=>`
         <div class="ccard" onclick="openDetail('${c.id}')">
-          <div class="ccard-img">${c.ico}</div>
+          <div class="ccard-img"></div>
           <div class="ccard-body">
             <div class="ccard-name">${c.name}</div>
             <div class="ccard-price">€${minPrice(c)} <span>vanaf</span></div>
-            <button class="ccard-btn">Bekijk & aanpassen</button>
+            <button class="ccard-btn">Bekijk &amp; aanpassen</button>
           </div>
         </div>`).join('')}
     </div>`;
 }
 
-/* ═══════════════════ FEATURED (Home) ═══════════════════ */
 function renderFeatured(){
   const featured=[
-    CATS.verjaardag.cakes[0],
-    CATS.verjaardag.cakes[1],
-    CATS.kids.cakes[0],
-    CATS.bruiloft.cakes[0],
-    CATS.verjaardag.cakes[5],
+    CATS.verjaardag.cakes[0],CATS.verjaardag.cakes[1],
+    CATS.kids.cakes[0],CATS.bruiloft.cakes[0],CATS.verjaardag.cakes[5],
   ];
   document.getElementById('featured-scroll').innerHTML=featured.map(c=>`
     <div class="feat-card" onclick="openDetail('${c.id}')">
-      <div class="feat-img">${c.ico}</div>
+      <div class="feat-img"></div>
       <div class="feat-body">
         <div class="feat-name">${c.name}</div>
         <div class="feat-price">€${Math.min(...c.sizes.map(s=>s.p))} <span>vanaf</span></div>
@@ -1120,28 +931,29 @@ function renderFeatured(){
     </div>`).join('');
 }
 
-/* ═══════════════════ DETAIL ═══════════════════ */
 function openDetail(id){
   let cake=null;
   for(const cat of Object.values(CATS)){const f=cat.cakes.find(c=>c.id===id);if(f){cake=f;break;}}
   if(!cake) return;
   curCake=cake;qty=1;selSize=0;selFill=null;selCol=null;selExt=[];
   document.getElementById('qv').textContent='1';
-  document.getElementById('di-main').innerHTML=`<span style="font-size:96px">${cake.ico}</span>`;
-  document.getElementById('di-thumbs').innerHTML=[cake.ico,'📷','📷','📷'].map((t,i)=>
-    `<div class="d-thumb${i===0?' active':''}">${t}</div>`).join('');
+  document.getElementById('di-main').innerHTML='';
+  document.getElementById('di-thumbs').innerHTML=['','','',''].map((_,i)=>
+    `<div class="d-thumb${i===0?' active':''}"></div>`).join('');
   document.getElementById('di-name').textContent=cake.name;
   document.getElementById('di-desc').textContent=cake.desc;
   document.getElementById('size-list').innerHTML=cake.sizes.map((s,i)=>`
     <div class="ritem" onclick="pickSize(${i})">
-      <div class="rthumb">📐</div>
+      <div class="rthumb" style="background:var(--bg);display:flex;align-items:center;justify-content:center;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--light)" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+      </div>
       <div class="rinfo"><div class="rname">${s.l}</div></div>
       <div class="rprice">€${s.p}</div>
       <div class="rcircle${i===0?' on':''}" id="sc-${i}"></div>
     </div>`).join('');
   document.getElementById('fill-list').innerHTML=FILLS.map((f,i)=>`
     <div class="ritem" onclick="pickFill(${i})">
-      <div class="rthumb">${f.ico}</div>
+      <div class="rthumb" style="background:${FILL_COLS[f.id]||'var(--bg)'}"></div>
       <div class="rinfo"><div class="rname">${f.name}</div><div class="rnote">${f.note}</div></div>
       <div class="rcircle" id="fc-${i}"></div>
     </div>`).join('');
@@ -1160,7 +972,7 @@ function openDetail(id){
     document.getElementById('ext-grid').innerHTML=EXTRAS.map(e=>`
       <div class="extra-chip" id="ec-${e.id}" onclick="togExt('${e.id}')">
         <div class="extra-chip-top">
-          <span class="extra-ico">${e.ico}</span>
+          <span class="extra-abbr">${e.name.substring(0,3).toUpperCase()}</span>
           <span class="extra-price">${e.price>0?'+€'+e.price:'Gratis'}</span>
         </div>
         <div class="extra-name">${e.name}</div>
@@ -1198,23 +1010,20 @@ function chQty(d){qty=Math.max(1,qty+d);document.getElementById('qv').textConten
 function addToCart(){
   if(!curCake) return;
   if(selFill===null){alert('Kies alsjeblieft een vulling / smaak!');return;}
-  const totalPrice=calcPrice();
   cart.push({
-    uid:Date.now(),ico:curCake.ico,name:curCake.name,
+    uid:Date.now(),name:curCake.name,
     size:curCake.sizes[selSize].l,basePrice:curCake.sizes[selSize].p,
     filling:FILLS[selFill].name,
     colour:selCol?(COLS.find(c=>c.id===selCol)?.name||''):'Niet gekozen',
     extras:EXTRAS.filter(e=>selExt.includes(e.id)).map(e=>e.name),
     notes:document.getElementById('di-notes').value,
-    qty,totalPrice
+    qty,totalPrice:calcPrice()
   });
   updCart();nav('cart');
 }
 
-/* ═══════════════════ CUSTOM ═══════════════════ */
 function handleUpload(input){
-  const file=input.files[0];
-  if(!file) return;
+  const file=input.files[0];if(!file) return;
   const reader=new FileReader();
   reader.onload=(e)=>{
     document.getElementById('preview-img').src=e.target.result;
@@ -1235,7 +1044,7 @@ function submitCustom(){
   const desc=document.getElementById('c-desc').value;
   if(!name||!contact){alert('Vul alsjeblieft je naam en contactgegevens in.');return;}
   if(!occasion){alert('Kies alsjeblieft een gelegenheid.');return;}
-  if(!desc){alert('Beschrijf alsjeblieft je idee — gook nor is prima!');return;}
+  if(!desc){alert('Beschrijf alsjeblieft je idee.');return;}
   const date=document.getElementById('c-date').value||'Nader te bespreken';
   const persons=document.getElementById('c-persons').value;
   const tiers=document.getElementById('c-tiers').value;
@@ -1243,27 +1052,23 @@ function submitCustom(){
   const delivery=document.getElementById('c-delivery').value;
   const hasPhoto=document.getElementById('photo-input').files.length>0;
   const msg=encodeURIComponent(
-    `Hoi Sonya! ✏️ Custom taart aanvraag\n\n`+
-    `Naam: ${name}\nContact: ${contact}\n`+
-    `Gelegenheid: ${occasion}\nDatum: ${date}\n`+
-    `Personen: ${persons}\nEtages: ${tiers}\n`+
+    `Hoi Sonya! Custom taart aanvraag\n\nNaam: ${name}\nContact: ${contact}\n`+
+    `Gelegenheid: ${occasion}\nDatum: ${date}\nPersonen: ${persons}\nEtages: ${tiers}\n`+
     `Vulling: ${filling}\nBudget: ${selBudgetVal||'Niet opgegeven'}\n${delivery}\n\n`+
-    `Beschrijving:\n${desc}\n\n`+
-    `${hasPhoto?'📸 Inspiratiefoto is bijgevoegd (via website upload)':'Geen foto bijgevoegd'}`
+    `Beschrijving:\n${desc}\n\n${hasPhoto?'Foto bijgevoegd via website':'Geen foto bijgevoegd'}`
   );
   document.getElementById('custom-success').style.display='block';
   document.getElementById('custom-success').innerHTML=`
     <div class="success-box" style="margin-top:0;">
-      <div class="sicon">🎉</div>
+      <div class="sicon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
       <div class="stitle">Aanvraag verstuurd!</div>
-      <div class="ssub">Sonya neemt binnen 1–2 werkdagen contact op om alles te bespreken en een prijs op maat te maken. Check je Instagram DM's of e-mail!</div>
-      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="sig-btn">📸 DM @sonyas.bakery</a>
-      <div style="margin-top:12px;"><a href="mailto:?subject=Custom Taartaanvraag – Sonya's Bakery&body=${msg}" style="font-size:12px;color:var(--mid);text-decoration:underline;">Of verstuur per e-mail</a></div>
+      <div class="ssub">Sonya neemt binnen 1–2 werkdagen contact op om alles te bespreken en een prijs op maat te maken.</div>
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="sig-btn">DM @sonyas.bakery</a>
+      <div style="margin-top:12px;"><a href="mailto:?subject=Custom Taartaanvraag&body=${msg}" style="font-size:12px;color:var(--mid);text-decoration:underline;">Of verstuur per e-mail</a></div>
     </div>`;
   document.querySelector('.custom-form-wrap > .send-btn').style.display='none';
 }
 
-/* ═══════════════════ CART ═══════════════════ */
 function updCart(){
   const n=cart.reduce((s,i)=>s+i.qty,0);
   document.getElementById('cc').textContent=n;
@@ -1274,9 +1079,9 @@ function renderCart(){
   const el=document.getElementById('cart-body');
   if(!cart.length){
     el.innerHTML=`<div class="cart-empty">
-      <div class="ei">🎂</div>
-      <p>Je bestelling is nog leeg — blader door de taarten en voeg je favorieten toe!</p>
-      <button onclick="nav('catalog')" style="background:var(--navy);color:#fff;border:none;padding:12px 28px;border-radius:2px;font-size:12px;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:.08em;text-transform:uppercase;">Taarten bekijken</button>
+      <div class="ei">Nog leeg</div>
+      <p>Blader door de taarten en voeg je favorieten toe.</p>
+      <button onclick="nav('catalog')" style="background:var(--navy);color:#fff;border:none;padding:12px 28px;font-size:12px;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:.08em;text-transform:uppercase;">Taarten bekijken</button>
     </div>`;
     return;
   }
@@ -1284,12 +1089,10 @@ function renderCart(){
   el.innerHTML=
     cart.map(item=>`
       <div class="citem">
-        <div class="citem-icon">${item.ico}|/div>
+        <div class="citem-icon"></div>
         <div class="citem-info">
           <div class="citem-name">${item.name} ×${item.qty}</div>
-          <div class="citem-det">
-            ${item.size}<br>
-            Vulling: ${item.filling}<br>
+          <div class="citem-det">${item.size}<br>Vulling: ${item.filling}<br>
             ${item.colour!=='Niet gekozen'?`Kleur: ${item.colour}<br>`:''}
             ${item.extras.length?`Extra's: ${item.extras.join(', ')}<br>`:''}
             ${item.notes?`Notitie: ${item.notes}`:''}
@@ -1302,10 +1105,10 @@ function renderCart(){
       </div>`).join('')
     +`<div class="cart-totaal">
         <div class="cart-totaal-row"><span>Subtotaal</span><span class="amt">€${totaal}</span></div>
-        <div class="cart-totaal-row"><span style="font-size:11px;color:var(--light);font-weight:300;">Bezorgkosten worden overlegd met Sonya</span><span style="font-size:11px;color:var(--light);">PM</span></div>
+        <div class="cart-totaal-row"><span style="font-size:11px;color:var(--light);font-weight:300;">Bezorgkosten worden overlegd</span><span style="font-size:11px;color:var(--light);">PM</span></div>
         <div class="cart-totaal-row"><span>Totaal</span><span class="amt">€${totaal}</span></div>
-      </div>`
-    +`<div class="contact-box">
+      </div>
+      <div class="contact-box">
         <h3>Jouw gegevens</h3>
         <div class="fg"><label>Jouw naam</label><input id="cn" placeholder="bijv. Marie de Vries"></div>
         <div class="fg-row">
@@ -1328,20 +1131,25 @@ function submitOrder(){
   const deliv=document.getElementById('cdv')?.value||'';
   const notes=document.getElementById('cnotes')?.value||'';
   const totaal=cart.reduce((s,i)=>s+i.totalPrice,0);
-  const lines=cart.map(i=>`• ${i.name} ×${i.qty} — €${i.totalPrice}\n  Formaat: ${i.size}\n  Vulling: ${i.filling}\n  Kleur: ${i.colour}${i.extras.length?"\n  Extra's: "+i.extras.join(', '):''}${i.notes?'\n  Notitie: '+i.notes:''}`).join('\n\n');
-  const msg=encodeURIComponent(`Hoi Sonya! 🎂 Bestelling\n\nNaam: ${name}\nDatum: ${date}\n${deliv}\nContact: ${contact}\n\n${lines}\n\nTotaal: €${totaal}${notes?'\n\nOpmerkingen: '+notes:''}`);
+  const lines=cart.map(i=>
+    `- ${i.name} x${i.qty} -- EUR${i.totalPrice}\n  Formaat: ${i.size}\n  Vulling: ${i.filling}`+
+    `${i.extras.length?"\n  Extra's: "+i.extras.join(', '):''}${i.notes?'\n  Notitie: '+i.notes:''}`
+  ).join('\n\n');
+  const msg=encodeURIComponent(
+    `Hoi Sonya! Bestelling\n\nNaam: ${name}\nDatum: ${date}\n${deliv}\nContact: ${contact}\n\n`+
+    `${lines}\n\nTotaal: EUR${totaal}${notes?'\n\nOpmerkingen: '+notes:''}`
+  );
   document.getElementById('cart-body').innerHTML=`
     <div class="success-box">
-      <div class="sicon">🎉</div>
+      <div class="sicon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
       <div class="stitle">Bestelling verstuurd!</div>
-      <div class="ssub">Sonya neemt zo snel mogelijk contact op om je bestelling te bevestigen en de betaling te regelen. Check je Instagram DM's of e-mail!</div>
-      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="sig-btn">📸 DM @sonyas.bakery</a>
-      <div style="margin-top:12px;"><a href="mailto:?subject=Taartbestelling – Sonya's Bakery&body=${msg}" style="font-size:12px;color:var(--mid);text-decoration:underline;">Of verstuur per e-mail</a></div>
+      <div class="ssub">Sonya neemt zo snel mogelijk contact op om je bestelling te bevestigen en de betaling te regelen.</div>
+      <a href="https://instagram.com/sonyas.bakery" target="_blank" class="sig-btn">DM @sonyas.bakery</a>
+      <div style="margin-top:12px;"><a href="mailto:?subject=Taartbestelling&body=${msg}" style="font-size:12px;color:var(--mid);text-decoration:underline;">Of verstuur per e-mail</a></div>
     </div>`;
   cart=[];updCart();
 }
 
-/* INIT */
 renderCat();
 renderCart();
 renderFeatured();
