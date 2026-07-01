@@ -317,15 +317,15 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 
 /* VULLINGEN PROMO */
 .vullingen-promo{background:var(--white);border-top:1px solid var(--border);}
-.vp-inner{display:flex;align-items:stretch;}
-.vp-photos{display:flex;gap:2px;flex:1;min-height:320px;background:var(--border);}
-.vp-photo{flex:1;overflow:hidden;}
-.vp-cake{width:100%;height:100%;}
-.vp-text{flex:0 0 36%;padding:44px 32px;display:flex;flex-direction:column;justify-content:center;background:var(--white);}
+.vp-inner{display:flex;align-items:stretch;height:440px;}
+.vp-photos{flex:0 0 64%;display:flex;gap:3px;background:var(--border);}
+.vp-photo{flex:1;position:relative;overflow:hidden;}
+.vp-cake{position:absolute;inset:0;background-size:cover;background-position:center;}
+.vp-text{flex:1;padding:48px 40px;display:flex;flex-direction:column;justify-content:center;background:var(--white);}
 @media(max-width:720px){
-  .vp-inner{flex-direction:column;}
-  .vp-photos{min-height:220px;flex:none;}
-  .vp-text{flex:none;padding:32px 22px;}
+  .vp-inner{flex-direction:column;height:auto;}
+  .vp-photos{flex:none;height:260px;}
+  .vp-text{padding:32px 22px;}
 }
 
 /* VULLINGEN PAGE */
@@ -413,7 +413,28 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
     </div>
   </div>
 
-
+  <div class="vullingen-promo">
+    <div class="vp-inner">
+      <div class="vp-photos">
+        <div class="vp-photo" id="vp-photo-1">
+          <div class="vp-cake" style="background:linear-gradient(to bottom,#F2E8CC 0% 13%,#FAF6F0 13% 30%,#D44060 30% 38%,#FAF6F0 38% 58%,#F2E8CC 58% 72%,#FAF6F0 72% 86%,#F2E8CC 86% 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(100,80,60,.35);letter-spacing:.14em;text-transform:uppercase;">foto volgt</span>
+          </div>
+        </div>
+        <div class="vp-photo" id="vp-photo-2">
+          <div class="vp-cake" style="background:linear-gradient(to bottom,#2C1208 0% 13%,#FAF5EF 13% 32%,#C07030 32% 40%,#FAF5EF 40% 58%,#2C1208 58% 72%,#180804 72% 80%,#FAF5EF 80% 91%,#2C1208 91% 100%);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(255,240,220,.35);letter-spacing:.14em;text-transform:uppercase;">foto volgt</span>
+          </div>
+        </div>
+      </div>
+      <div class="vp-text">
+        <span class="section-label">Smaak &amp; vulling</span>
+        <h2 class="section-title" style="margin-bottom:14px;">Onze <em>vullingen</em></h2>
+        <p class="section-body" style="margin-bottom:28px;">Elke taart wordt gevuld met één van onze huisgemaakte vullingen. Niet alleen prachtig van buiten — ook onweerstaanbaar van binnen.</p>
+        <button class="btn-primary" onclick="nav('vullingen')">Bekijk alle vullingen</button>
+      </div>
+    </div>
+  </div>
 
   <div class="about-wrap" id="over-sonya">
     <div class="about-inner">
