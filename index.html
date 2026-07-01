@@ -866,7 +866,7 @@ function updatePrice(){
   document.getElementById('price-breakdown').textContent=calcBreakdown()||'Kies een formaat om te beginnen';
 }
 
-function nav(p){
+function nav(p, pushState=true){
   ['home','catalog','detail','custom','cart'].forEach(x=>
     document.getElementById('page-'+x).classList.toggle('hidden',x!==p));
   document.getElementById('bn-home').classList.toggle('active',p==='home');
@@ -877,7 +877,18 @@ function nav(p){
   window.scrollTo(0,0);
   if(p==='cart') renderCart();
   if(p==='catalog') renderCat();
+  if(pushState) history.pushState({page:p}, '', '#'+p);
 }
+window.addEventListener('popstate', e=>{
+  const p = (e.state&&e.state.page) ? e.state.page : (location.hash.replace('#','') || 'home');
+  nav(p, false);
+});
+window.addEventListener('DOMContentLoaded', ()=>{
+  const h = location.hash.replace('#','');
+  const valid=['home','catalog','detail','custom','cart'];
+  if(h && valid.includes(h)) nav(h, false);
+  else history.replaceState({page:'home'},'','#home');
+});
 
 function goCat(cat){
   curCat=cat;nav('catalog');
