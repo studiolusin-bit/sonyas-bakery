@@ -318,13 +318,13 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 /* VULLINGEN PROMO */
 .vullingen-promo{background:var(--white);border-top:1px solid var(--border);}
 .vp-inner{display:flex;}
-.vp-photos{flex:0 0 64%;display:flex;gap:3px;}
+.vp-photos{flex:0 0 64%;display:flex;gap:3px;max-height:320px;}
 .vp-photo{flex:1;aspect-ratio:4/5;overflow:hidden;}
 .vp-cake{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;}
 .vp-text{flex:1;padding:48px 40px;display:flex;flex-direction:column;justify-content:center;background:var(--white);}
 @media(max-width:720px){
   .vp-inner{flex-direction:column;}
-  .vp-photos{flex:none;width:100%;}
+  .vp-photos{flex:none;width:100%;max-height:260px;}
   .vp-text{padding:32px 22px;}
 }
 
