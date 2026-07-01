@@ -333,10 +333,10 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 .vull-hero{padding:56px 24px 40px;text-align:center;background:#F5F2EE;}
 .vull-intro{max-width:520px;margin:12px auto 0;font-size:13px;color:var(--mid);line-height:1.9;font-weight:300;}
 .vull-grid{display:grid;grid-template-columns:1fr;gap:0;background:#F5F2EE;padding:0 20px 0;}
-.vull-card{background:#F5F2EE;padding:40px 0 48px;border-bottom:1px solid var(--border);}
+.vull-card{background:#F5F2EE;padding:40px 0 48px;border-bottom:1px solid var(--border);cursor:default;}
 .vull-card:last-child{border-bottom:none;}
-.vull-photo{width:100%;aspect-ratio:4/3;background:var(--border);overflow:hidden;margin-bottom:24px;position:relative;}
-.vull-photo-img{position:absolute;inset:0;background-size:cover;background-position:center;}
+.vull-photo{width:100%;aspect-ratio:4/3;background:var(--border);overflow:hidden;margin-bottom:24px;position:relative;cursor:default;pointer-events:none;-webkit-touch-callout:none;user-select:none;}
+.vull-photo-img{position:absolute;top:0;right:0;bottom:0;left:0;background-size:cover;background-position:center;}
 .vull-photo-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#EDE0CC,#E0CEAE);}
 .vull-photo-ph span{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(100,80,60,.4);letter-spacing:.14em;text-transform:uppercase;}
 .vull-name{font-size:15px;font-weight:700;color:var(--dark);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
@@ -1298,7 +1298,7 @@ function renderVullingen(){
     return `<div class="vull-card">
       <div class="vull-photo">
         ${photo
-          ? `<div class="vull-photo-img" style="background-image:url('${photo}');background-size:cover;background-position:center;top:0;right:0;bottom:0;left:0;position:absolute;"></div>`
+          ? `<div class="vull-photo-img" style="background-image:url('${photo}');background-size:cover;background-position:center;position:absolute;top:0;right:0;bottom:0;left:0;"></div>`
           : `<div class="vull-photo-ph"><span>foto volgt</span></div>`}
       </div>
       <div class="vull-name">${f.name}</div>
