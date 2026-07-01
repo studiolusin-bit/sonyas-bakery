@@ -50,7 +50,7 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 
 .btn-primary{display:inline-block;background:var(--navy);color:#fff;padding:14px 32px;font-size:11px;font-weight:400;text-decoration:none;cursor:pointer;border:none;font-family:'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;}
 .btn-primary:hover{background:var(--navy-dark);}
-.btn-outline{display:inline-block;background:transparent;color:var(--navy);padding:13px 30px;font-size:11px;font-weight:400;text-decoration:none;cursor:pointer;border:1px solid var(--navy);font-family:'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;}
+.btn-outline{display:inline-block;background:transparent;color:#fff;padding:13px 30px;font-size:11px;font-weight:400;text-decoration:none;cursor:pointer;border:1px solid rgba(255,255,255,.7);font-family:'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase;}.btn-outline:hover{background:rgba(255,255,255,.15);color:#fff;}
 .btn-outline:hover{background:var(--navy);color:#fff;}
 
 /* OCCASIONS */
@@ -305,6 +305,10 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 .bnav-btn svg{width:20px;height:20px;}
 .cbadge{position:absolute;top:-3px;right:-3px;background:var(--navy);color:#fff;font-size:9px;width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:500;}
 .cbadge.hidden{display:none;}
+
+@media(max-width:640px){
+  .hero{background-size:cover!important;background-position:center center!important;min-height:100vw!important;padding:80px 20px 60px!important;}
+}
 </style>
 </head>
 <body>
