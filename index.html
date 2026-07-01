@@ -317,14 +317,14 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 
 /* VULLINGEN PROMO */
 .vullingen-promo{background:var(--white);border-top:1px solid var(--border);}
-.vp-inner{display:flex;align-items:stretch;height:440px;}
-.vp-photos{flex:0 0 64%;display:flex;gap:3px;background:var(--border);}
-.vp-photo{flex:1;position:relative;overflow:hidden;}
-.vp-cake{position:absolute;inset:0;background-size:cover;background-position:center;}
+.vp-inner{display:flex;}
+.vp-photos{flex:0 0 64%;display:flex;gap:3px;height:440px;}
+.vp-photo{flex:1;overflow:hidden;}
+.vp-cake{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;}
 .vp-text{flex:1;padding:48px 40px;display:flex;flex-direction:column;justify-content:center;background:var(--white);}
 @media(max-width:720px){
-  .vp-inner{flex-direction:column;height:auto;}
-  .vp-photos{flex:none;height:260px;}
+  .vp-inner{flex-direction:column;}
+  .vp-photos{flex:none;height:260px;width:100%;}
   .vp-text{padding:32px 22px;}
 }
 
