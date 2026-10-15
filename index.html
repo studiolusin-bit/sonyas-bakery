@@ -1310,10 +1310,7 @@ function renderVullingen(){
           : `<div class="vull-photo-ph"><span>foto volgt</span></div>`}
       </div>
       <div class="vull-name">${f.name}</div>
-      <div class="vull-desc">${d.desc}</div>
-      <div class="vull-comp-label">Samenstelling</div>
-      <div class="vull-comp">${d.comp}</div>
-      <div class="vull-allerg"><strong>Allergenen:</strong> ${d.allerg}</div>
+      <div class="vull-allerg">${f.note}</div>
     </div>`;
   }
   const CAKE_IDS=['redvelvet','blackfor'];
