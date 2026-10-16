@@ -332,7 +332,9 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 #page-vullingen{background:#F5F2EE;min-height:100vh;padding-bottom:80px;}
 .vull-hero{padding:56px 24px 40px;text-align:center;background:#F5F2EE;}
 .vull-intro{max-width:520px;margin:12px auto 0;font-size:13px;color:var(--mid);line-height:1.9;font-weight:300;}
-.vull-grid{background:#F5F2EE;padding-bottom:40px;}.vull-subgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px;padding:0 20px 8px;}.vull-section-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--dark);padding:36px 20px 14px;letter-spacing:.02em;}
+.vull-grid{background:#F5F2EE;padding-bottom:40px;}
+.vull-disclaimer{margin:28px 20px 0;padding:14px 18px;background:#FBF7F0;border-left:3px solid #C4A882;font-family:'Montserrat',sans-serif;font-size:12px;color:#6B5F55;line-height:1.7;font-weight:300;}
+.vull-disclaimer strong{font-weight:600;}.vull-subgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px;padding:0 20px 8px;}.vull-section-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--dark);padding:36px 20px 14px;letter-spacing:.02em;}
 .vull-card{background:#F5F2EE;padding:40px 0 48px;border-bottom:1px solid var(--border);cursor:default;}
 .vull-card:last-child{border-bottom:none;}
 .vull-photo{width:100%;aspect-ratio:3/4;background:var(--border);overflow:hidden;margin-bottom:24px;position:relative;cursor:default;pointer-events:none;-webkit-touch-callout:none;user-select:none;}
@@ -343,11 +345,7 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 .vull-desc{font-size:13px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:20px;}
 .vull-comp-label{font-size:11px;font-weight:700;color:var(--dark);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
 .vull-comp{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:16px;}
-.vull-allerg{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
-.allerg-icon{display:inline-flex;flex-direction:column;align-items:center;gap:4px;cursor:default;}
-.allerg-icon-circle{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1.3px solid #9B8E84;}
-.allerg-icon svg{width:18px;height:18px;}
-.allerg-icon-label{font-size:9px;color:#9B8E84;letter-spacing:.04em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:400;}
+
 .vull-cta{padding:44px 24px;text-align:center;background:var(--cream);}
 @media(min-width:700px){
   .vull-subgrid{grid-template-columns:repeat(5,1fr);gap:20px 16px;padding:0 32px 8px;}.vull-section-title{font-size:30px;padding:40px 32px 16px;}
@@ -1332,7 +1330,6 @@ function renderVullingen(){
           : `<div class="vull-photo-ph"><span>foto volgt</span></div>`}
       </div>
       <div class="vull-name">${f.name}</div>
-      <div class="vull-allerg">${renderAllergens(f.note)}</div>
     </div>`;
   }
   const CAKE_IDS=['redvelvet','blackfor'];
@@ -1340,6 +1337,7 @@ function renderVullingen(){
   const chocCards=FILLS.filter(f=>CHOC_IDS.includes(f.id)).map(makeCard).join('');
   const cakeCards=FILLS.filter(f=>CAKE_IDS.includes(f.id)).map(makeCard).join('');
   document.getElementById('vull-grid').innerHTML=`
+    <div class="vull-disclaimer"><strong>Allergenen:</strong> Onze producten bevatten of kunnen sporen bevatten van gluten, ei, melk, soja, noten (waaronder hazelnoten, amandelen, pistache en kokos) en pinda’s. Bij vragen over allergenen kun je altijd contact met ons opnemen.</div>
     <div class="vull-section-title">Vanille biscuit</div>
     <div class="vull-subgrid">${vanillaCards}</div>
     <div class="vull-section-title">Chocolade biscuit</div>
