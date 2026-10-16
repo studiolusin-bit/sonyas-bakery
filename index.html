@@ -343,9 +343,11 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 .vull-desc{font-size:13px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:20px;}
 .vull-comp-label{font-size:11px;font-weight:700;color:var(--dark);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
 .vull-comp{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:16px;}
-.vull-allerg{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
-.allerg-icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1.3px solid #9B8E84;cursor:default;}
+.vull-allerg{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.allerg-icon{display:inline-flex;flex-direction:column;align-items:center;gap:4px;cursor:default;}
+.allerg-icon-circle{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1.3px solid #9B8E84;}
 .allerg-icon svg{width:18px;height:18px;}
+.allerg-icon-label{font-size:9px;color:#9B8E84;letter-spacing:.04em;text-transform:uppercase;font-family:'Montserrat',sans-serif;font-weight:400;}
 .vull-cta{padding:44px 24px;text-align:center;background:var(--cream);}
 @media(min-width:700px){
   .vull-subgrid{grid-template-columns:repeat(5,1fr);gap:20px 16px;padding:0 32px 8px;}.vull-section-title{font-size:30px;padding:40px 32px 16px;}
@@ -1313,7 +1315,8 @@ function renderVullingen(){
       const key=part.split(' (')[0];
       const icon=ALLERG_ICONS[key];
       if(!icon) return '';
-      return '<span class="allerg-icon" title="'+key+'">'+icon+'</span>';
+      const label=key==='Pinda’s'?'Pinda’s':key;
+      return '<span class="allerg-icon"><span class="allerg-icon-circle">'+icon+'</span><span class="allerg-icon-label">'+label+'</span></span>';
     }).join('');
   }
 
