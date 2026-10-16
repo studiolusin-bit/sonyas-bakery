@@ -332,23 +332,24 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 #page-vullingen{background:#F5F2EE;min-height:100vh;padding-bottom:80px;}
 .vull-hero{padding:56px 24px 40px;text-align:center;background:#F5F2EE;}
 .vull-intro{max-width:520px;margin:12px auto 0;font-size:13px;color:var(--mid);line-height:1.9;font-weight:300;}
-.vull-grid{background:#F5F2EE;padding-bottom:40px;}
-.vull-disclaimer{margin:28px 20px 0;padding:14px 18px;background:#FBF7F0;border-left:3px solid #C4A882;font-family:'Montserrat',sans-serif;font-size:12px;color:#6B5F55;line-height:1.7;font-weight:300;}
-.vull-disclaimer strong{font-weight:600;}.vull-subgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px;padding:0 20px 8px;}.vull-section-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--dark);padding:36px 20px 14px;letter-spacing:.02em;}
+.vull-grid{background:#F5F2EE;padding-bottom:60px;}
+.vull-disclaimer{margin:32px 24px 0;padding:18px 24px;background:transparent;border-top:1px solid #DDD3C0;border-bottom:1px solid #DDD3C0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#9B8E84;line-height:1.9;text-align:center;}
+.vull-disclaimer strong{font-weight:600;font-style:normal;color:#6B5F55;}
+.vull-section-rule{height:1px;background:linear-gradient(to right,#C4A882 60%,transparent);margin:0 20px 24px;}.vull-subgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px;padding:0 20px 8px;}.vull-section-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--dark);padding:52px 20px 6px;letter-spacing:.02em;}
 .vull-card{background:#F5F2EE;padding:40px 0 48px;border-bottom:1px solid var(--border);cursor:default;}
 .vull-card:last-child{border-bottom:none;}
 .vull-photo{width:100%;aspect-ratio:3/4;background:var(--border);overflow:hidden;margin-bottom:24px;position:relative;cursor:default;pointer-events:none;-webkit-touch-callout:none;user-select:none;}
 .vull-photo-img{position:absolute;top:0;right:0;bottom:0;left:0;background-size:cover;background-position:center;}
 .vull-photo-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#EDE0CC,#E0CEAE);}
 .vull-photo-ph span{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(100,80,60,.4);letter-spacing:.14em;text-transform:uppercase;}
-.vull-name{font-size:15px;font-weight:700;color:var(--dark);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+.vull-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;font-style:italic;color:#3A3128;letter-spacing:.02em;text-transform:none;line-height:1.35;padding-top:10px;margin-bottom:0;}
 .vull-desc{font-size:13px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:20px;}
 .vull-comp-label{font-size:11px;font-weight:700;color:var(--dark);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
 .vull-comp{font-size:12px;color:var(--mid);line-height:1.8;font-weight:300;margin-bottom:16px;}
 
 .vull-cta{padding:44px 24px;text-align:center;background:var(--cream);}
 @media(min-width:700px){
-  .vull-subgrid{grid-template-columns:repeat(5,1fr);gap:20px 16px;padding:0 32px 8px;}.vull-section-title{font-size:30px;padding:40px 32px 16px;}
+  .vull-subgrid{grid-template-columns:repeat(5,1fr);gap:28px 20px;padding:0 40px 8px;}.vull-section-title{font-size:36px;padding:60px 40px 6px;}.vull-section-rule{margin:0 40px 28px;}.vull-disclaimer{margin:40px 40px 0;font-size:15px;}
   .vull-card{border-bottom:none;padding:28px 0;}
 }
 </style>
@@ -1361,10 +1362,13 @@ function renderVullingen(){
   document.getElementById('vull-grid').innerHTML=`
     <div class="vull-disclaimer"><strong>Allergenen:</strong> Onze producten bevatten of kunnen sporen bevatten van gluten, ei, melk, soja, noten (waaronder hazelnoten, amandelen, pistache en kokos) en pinda’s. Bij vragen over allergenen kun je altijd contact met ons opnemen.</div>
     <div class="vull-section-title">Vanille biscuit</div>
+    <div class="vull-section-rule"></div>
     <div class="vull-subgrid">${vanillaCards}</div>
     <div class="vull-section-title">Chocolade biscuit</div>
+    <div class="vull-section-rule"></div>
     <div class="vull-subgrid">${chocCards}</div>
     <div class="vull-section-title">Bijzondere taarten</div>
+    <div class="vull-section-rule"></div>
     <div class="vull-subgrid">${cakeCards}</div>
   `;
 }
