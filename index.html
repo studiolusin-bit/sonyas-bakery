@@ -333,8 +333,8 @@ header{background:var(--white);height:64px;display:flex;align-items:center;justi
 .vull-hero{padding:56px 24px 40px;text-align:center;background:#F5F2EE;}
 .vull-intro{max-width:520px;margin:12px auto 0;font-size:13px;color:var(--mid);line-height:1.9;font-weight:300;}
 .vull-grid{background:#F5F2EE;padding-bottom:60px;}
-.vull-disclaimer{margin:32px 24px 0;padding:18px 24px;background:transparent;border-top:1px solid #DDD3C0;border-bottom:1px solid #DDD3C0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#9B8E84;line-height:1.9;text-align:center;}
-.vull-disclaimer strong{font-weight:600;font-style:normal;color:#6B5F55;}
+.vull-disclaimer{margin:40px 24px 0;padding:20px 24px;background:transparent;border-top:1px solid #DDD3C0;border-bottom:1px solid #DDD3C0;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:300;color:#5A5047;line-height:1.9;text-align:center;letter-spacing:.02em;}
+.vull-disclaimer strong{font-weight:600;color:#3A3128;}
 .vull-section-rule{height:1px;background:linear-gradient(to right,#C4A882 60%,transparent);margin:0 20px 24px;}.vull-subgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px;padding:0 20px 8px;}.vull-section-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--dark);padding:52px 20px 6px;letter-spacing:.02em;}
 .vull-card{background:#F5F2EE;padding:40px 0 48px;border-bottom:1px solid var(--border);cursor:default;}
 .vull-card:last-child{border-bottom:none;}
@@ -1360,7 +1360,6 @@ function renderVullingen(){
   const chocCards=FILLS.filter(f=>CHOC_IDS.includes(f.id)).map(makeCard).join('');
   const cakeCards=FILLS.filter(f=>CAKE_IDS.includes(f.id)).map(makeCard).join('');
   document.getElementById('vull-grid').innerHTML=`
-    <div class="vull-disclaimer"><strong>Allergenen:</strong> Onze producten bevatten of kunnen sporen bevatten van gluten, ei, melk, soja, noten (waaronder hazelnoten, amandelen, pistache en kokos) en pinda’s. Bij vragen over allergenen kun je altijd contact met ons opnemen.</div>
     <div class="vull-section-title">Vanille biscuit</div>
     <div class="vull-section-rule"></div>
     <div class="vull-subgrid">${vanillaCards}</div>
@@ -1370,6 +1369,7 @@ function renderVullingen(){
     <div class="vull-section-title">Bijzondere taarten</div>
     <div class="vull-section-rule"></div>
     <div class="vull-subgrid">${cakeCards}</div>
+    <div class="vull-disclaimer"><strong>Allergenen:</strong> Onze producten bevatten of kunnen sporen bevatten van gluten, ei, melk, soja, noten (waaronder hazelnoten, amandelen, pistache en kokos) en pinda’s. Bij vragen over allergenen kun je altijd contact met ons opnemen.</div>
   `;
 }
 </script>
